@@ -15,17 +15,9 @@ import stylelint from 'gulp-stylelint';
 import watchify from 'watchify';
 import ghPages from 'gulp-gh-pages';
 import jade from 'gulp-jade';
-
-const processors = [
-  require('postcss-import'),
-  require('postcss-url'),
-  require('postcss-custom-properties'),
-  require('postcss-calc'),
-  require('postcss-color-function'),
-  require('postcss-custom-media'),
-  require('postcss-pseudoelements'),
-  require('autoprefixer'),
-];
+import autoprefixer from 'gulp-autoprefixer';
+import sass from 'gulp-sass';
+import moduleImporter from 'sass-module-importer';
 
 const dirs = {
   src: 'source/',
@@ -33,15 +25,15 @@ const dirs = {
 };
 
 const files = {
-  css: 'index.css',
+  css: 'index.scss',
   js: 'index.js',
   tpl: 'index.jade'
 }
 
 const globs = {
   css: [
-    dirs.src + 'styles/**/*.css',
-    dirs.src + 'components/**/*.css',
+    dirs.src + 'styles/**/*.scss',
+    dirs.src + 'components/**/*.scss',
     dirs.src + files.css
   ],
   js: [
@@ -59,9 +51,7 @@ const globs = {
 gulp.task('build:css', () => {
   gulp.src(dirs.src + files.css)
     .pipe(plumber())
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(postcss(processors))
-    .pipe(sourcemaps.write('./'))
+    .pipe(sass({ importer: moduleImporter() }))
     .pipe(gulp.dest(dirs.dest))
     .pipe(connect.reload());
 });
