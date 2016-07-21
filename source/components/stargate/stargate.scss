@@ -1,0 +1,73 @@
+/** @define Stargate */
+
+$stargate_size: 90vh;
+$stargate_inner_ring_size: $stargate_size * .74;
+$shevron_n: 9;
+$screws_n: 6;
+$screws_radius: $stargate_size * .5 * .978;
+$screws_size: $stargate_size * .00625;
+$screws_shadow: ();
+$screws_spaces: (
+  11deg,
+  13deg,
+  19deg,
+  25deg,
+  28deg,
+  30deg,
+);
+
+@for $i from 1 through $screws_n {
+
+  @for $j from 0 to $shevron_n {
+    $d: (360deg / $shevron_n * $j) - nth($screws_spaces, $i);
+    $x: sin($d) * $screws_radius * -1;
+    $y: cos($d) * $screws_radius * -1;
+    $screws_shadow: $screws_shadow, $x $y $c_gray_darker;
+  }
+
+}
+
+.Stargate {
+  position: relative;
+  width: $stargate_size;
+  height: $stargate_size;
+  /* background-color: #888; /* temporare */
+  border-radius: 50%;
+}
+
+.Stargate-outerRing {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 $stargate_size * .005 $c_gray_darker,
+    inset 0 0 0 $stargate_size * .00625 $c_gray_darkest,
+    inset 0 0 0 $stargate_size * .015 $c_gray,
+    inset 0 0 0 $stargate_size * .01625 $c_gray_dark,
+    inset 0 0 0 $stargate_size * .035 $c_gray,
+    inset 0 0 0 $stargate_size * .03625 $c_gray_dark,
+    inset 0 0 0 $stargate_size * .0525 $c_gray,
+    inset 0 0 $stargate_size * .005 $stargate_size * .0525 $c_gray_darkest;
+
+  @extend _center;
+}
+
+.Stargate-screws {
+  width: $screws_size;
+  height: $screws_size;
+  border-radius: 50%;
+  box-shadow: $screws_shadow;
+
+  @extend _center;
+}
+
+.Stargate-innerRing {
+  width: $stargate_inner_ring_size;
+  height: $stargate_inner_ring_size;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 $stargate_size * .0225 $c_gray,
+    0 0 $stargate_size * .005 $stargate_size * .0225 $c_gray_darkest;
+
+  @extend _center;
+}

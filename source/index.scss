@@ -1,0 +1,31 @@
+$c_gray_darkest: #444;
+$c_gray_darker: #555;
+$c_gray_dark: #5c5c5c;
+$c_gray: #666;
+
+_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* @import "suitcss-base"; */
+
+@import "styles/math";
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2e4634;
+}
+
+body > * {
+  flex-shrink: 0;
+}
+
+@import "components/stargate/stargate.scss";
+
+/* @import "components/dhd.css"; */
