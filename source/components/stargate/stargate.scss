@@ -2,6 +2,7 @@
 
 $stargate_size: 90vh;
 $stargate_inner_ring_size: $stargate_size * .74;
+$stargate_horizon_size: $stargate_inner_ring_size;
 $shevron_n: 9;
 $screws_n: 6;
 $screws_radius: $stargate_size * .5 * .978;
@@ -68,6 +69,15 @@ $screws_spaces: (
   box-shadow:
     0 0 0 $stargate_size * .0225 $c_gray,
     0 0 $stargate_size * .005 $stargate_size * .0225 $c_gray_darkest;
+
+  @extend _center;
+}
+
+.Stargate-horizon {
+  width: $stargate_horizon_size;
+  height: $stargate_horizon_size;
+  background-color: #33f;
+  border-radius: 50%;
 
   @extend _center;
 }

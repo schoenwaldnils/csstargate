@@ -10,8 +10,7 @@ _center {
   transform: translate(-50%, -50%);
 }
 
-/* @import "suitcss-base"; */
-
+@import "node_modules/normalize.css/normalize.css";
 @import "styles/math";
 
 body {
@@ -19,7 +18,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #2e4634;
+  background-color: #000;
 }
 
 body > * {

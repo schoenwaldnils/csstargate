@@ -5,10 +5,8 @@ import connect from 'gulp-connect';
 import eslint from 'gulp-eslint';
 import exit from 'gulp-exit';
 import gulp from 'gulp';
-import mochaPhantomJS from 'gulp-mocha-phantomjs';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
-import rename from 'gulp-rename';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import stylelint from 'gulp-stylelint';
@@ -52,6 +50,7 @@ gulp.task('build:css', () => {
   gulp.src(dirs.src + files.css)
     .pipe(plumber())
     .pipe(sass({ importer: moduleImporter() }))
+    .pipe(autoprefixer())
     .pipe(gulp.dest(dirs.dest))
     .pipe(connect.reload());
 });

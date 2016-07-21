@@ -52,11 +52,11 @@
     "gulp-util": "^3.0.7",
     "lodash": "^4.13.1",
     "mocha": "^2.5.3",
+    "normalize.css": "^4.2.0",
     "npm-run-all": "^2.1.1",
     "sass-module-importer": "^1.2.1",
     "stylelint": "^6.5.1",
     "stylelint-config-factorial": "^7.0.2",
-    "suitcss-base": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
