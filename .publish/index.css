@@ -1,0 +1,44 @@
+_center, .Stargate-outerRing, .Stargate-screws, .Stargate-innerRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+/* @import "suitcss-base"; */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2e4634; }
+
+body > * {
+  flex-shrink: 0; }
+
+/** @define Stargate */
+.Stargate {
+  position: relative;
+  width: 90vh;
+  height: 90vh;
+  /* background-color: #888; /* temporare */
+  border-radius: 50%; }
+
+.Stargate-outerRing {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0.45vh #555, inset 0 0 0 0.5625vh #444, inset 0 0 0 1.35vh #666, inset 0 0 0 1.4625vh #5c5c5c, inset 0 0 0 3.15vh #666, inset 0 0 0 3.2625vh #5c5c5c, inset 0 0 0 4.725vh #666, inset 0 0 0.45vh 4.725vh #444; }
+
+.Stargate-screws {
+  width: 0.5625vh;
+  height: 0.5625vh;
+  border-radius: 50%;
+  box-shadow: 8.3975vh -43.20141vh #555, -21.33647vh -38.49201vh #555, -41.08687vh -15.77177vh #555, -41.61227vh 14.32825vh #555, -22.66683vh 37.72393vh #555, 6.88468vh 43.46816vh #555, 33.21477vh 28.87316vh #555, 44.00329vh 0.76806vh #555, 34.20208vh -27.69686vh #555, 9.9001vh -42.88203vh #555, -19.98012vh -39.2132vh #555, -40.51142vh -17.19608vh #555, -42.08697vh 12.86728vh #555, -23.96956vh 36.90989vh #555, 5.36347vh 43.68196vh #555, 32.18688vh 30.01475vh #555, 43.94968vh 2.30329vh #555, 35.14785vh -26.48629vh #555, 14.32825vh -41.61227vh #555, -15.77177vh -41.08687vh #555, -38.49201vh -21.33647vh #555, -43.20141vh 8.3975vh #555, -27.69639vh 34.20219vh #555, 0.76808vh 44.0033vh #555, 28.87316vh 33.21477vh #555, 43.46816vh 6.88467vh #555, 37.72387vh -22.66709vh #555, 18.59943vh -39.88661vh #555, -11.39063vh -42.5104vh #555, -36.05088vh -25.2431vh #555, -43.84253vh 3.83572vh #555, -31.11977vh 31.11977vh #555, -3.83572vh 43.84253vh #555, 25.2431vh 36.05088vh #555, 42.51039vh 11.39062vh #555, 39.88657vh -18.5996vh #555, 20.66144vh -38.85852vh #555, -9.15019vh -43.04828vh #555, -34.68035vh -27.09526vh #555, -43.98319vh 1.53593vh #555, -32.7058vh 29.44844vh #555, -6.12501vh 43.5817vh #555, 23.32175vh 37.3226vh #555, 41.856vh 13.59983vh #555, 40.80533vh -16.48657vh #555, 22.005vh -38.11378vh #555, -7.64226vh -43.34139vh #555, -33.71362vh -28.28908vh #555, -44.01vh 0vh #555, -33.71362vh 28.28908vh #555, -7.64226vh 43.34139vh #555, 22.005vh 38.11378vh #555, 41.35587vh 15.0523vh #555, 41.35585vh -15.05242vh #555; }
+
+.Stargate-innerRing {
+  width: 66.6vh;
+  height: 66.6vh;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2.025vh #666, 0 0 0.45vh 2.025vh #444; }
+
+/* @import "components/dhd.css"; */
