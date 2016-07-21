@@ -1,0 +1,45 @@
+/** @define Stargate */
+
+:root {
+  --Stargate-size: 90vh;
+}
+
+.Stargate {
+  position: relative;
+  width: var(--Stargate-size);
+  height: var(--Stargate-size);
+  /* background-color: #888; /* temporare */
+  border-radius: 50%;
+}
+
+.Stargate-outerRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    inset 0 0 0 calc(var(--Stargate-size) * .005) var(--c-gray-darker),
+    inset 0 0 0 calc(var(--Stargate-size) * .00625) var(--c-gray-darkest),
+    inset 0 0 0 calc(var(--Stargate-size) * .015) var(--c-gray),
+    inset 0 0 0 calc(var(--Stargate-size) * .01625) var(--c-gray-dark),
+    inset 0 0 0 calc(var(--Stargate-size) * .035) var(--c-gray),
+    inset 0 0 0 calc(var(--Stargate-size) * .03625) var(--c-gray-dark),
+    inset 0 0 0 calc(var(--Stargate-size) * .0525) var(--c-gray),
+    inset 0 0 calc(var(--Stargate-size) * .005) calc(var(--Stargate-size) * .0525) var(--c-gray-darkest);
+}
+
+.Stargate-innerRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--Stargate-size) * .74);
+  height: calc(var(--Stargate-size) * .74);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 calc(var(--Stargate-size) * .0225) var(--c-gray),
+    0 0 calc(var(--Stargate-size) * .005) calc(var(--Stargate-size) * .0225) var(--c-gray-darkest);
+}

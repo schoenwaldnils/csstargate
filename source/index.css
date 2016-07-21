@@ -1,0 +1,24 @@
+:root {
+  --c-gray-darkest: #444;
+  --c-gray-darker: #555;
+  --c-gray-dark: #5c5c5c;
+  --c-gray: #666;
+}
+
+@import "suitcss-base";
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2e4634;
+}
+
+body > * {
+  flex-shrink: 0;
+}
+
+@import "components/stargate/stargate.css";
+
+/* @import "components/dhd.css"; */
