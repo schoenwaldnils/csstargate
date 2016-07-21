@@ -1,0 +1,25 @@
+:root {
+  --ComponentName-background-color: #03c;
+}
+
+.ComponentName {
+  padding: .5em .75em;
+  color: #fff;
+  background-color: var(--ComponentName-background-color);
+  border: 0;
+}
+
+.ComponentName--modifierName {
+  font-size: 1.5rem;
+}
+
+.ComponentName-descendentName {
+  padding: .25em .5em;
+  font-size: .8em;
+  background-color: color(#fff alpha(50%));
+  border-radius: 2px;
+}
+
+.ComponentName.is-stateOfComponent {
+  background-color: #333;
+}
