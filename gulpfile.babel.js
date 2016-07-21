@@ -14,6 +14,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import stylelint from 'gulp-stylelint';
 import watchify from 'watchify';
 import ghPages from 'gulp-gh-pages';
+import jade from 'gulp-jade';
 
 const processors = [
   require('postcss-import'),
@@ -26,18 +27,47 @@ const processors = [
   require('autoprefixer'),
 ];
 
+const dirs = {
+  src: 'source/',
+  dest: 'build/'
+};
+
+const files = {
+  css: 'index.css',
+  js: 'index.js',
+  tpl: 'index.jade'
+}
+
+const globs = {
+  css: [
+    dirs.src + 'styles/**/*.css',
+    dirs.src + 'components/**/*.css',
+    dirs.src + files.css
+  ],
+  js: [
+    dirs.src + 'scripts/**/*.js',
+    dirs.src + 'components/**/*.js',
+    dirs.src + files.js
+  ],
+  tpl: [
+    dirs.src + 'templates/**/*.jade',
+    dirs.src + 'components/**/*.jade',
+    dirs.src + files.tpl
+  ]
+};
+
 gulp.task('build:css', () => {
-  gulp.src('lib/index.css')
+  gulp.src(dirs.src + files.css)
     .pipe(plumber())
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(postcss(processors))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest(dirs.dest))
     .pipe(connect.reload());
 });
 
 function compileJS(flag) {
-  const bundler = watchify(browserify('./lib/index.js', { debug: true }).transform(babel));
+  const bundler = watchify(browserify(dirs.src + files.js, { debug: true }).transform(babel));
 
   function rebundle() {
     return bundler
@@ -47,12 +77,11 @@ function compileJS(flag) {
         this.emit('end');
       })
       .pipe(plumber())
-      .pipe(source('index.js'))
+      .pipe(source(files.js))
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./build'));
-      // .pipe(exit()); // REVIEW
+      .pipe(gulp.dest(dirs.dest));
   }
 
   if (flag) {
@@ -63,13 +92,21 @@ function compileJS(flag) {
 
     rebundle();
   } else {
-    rebundle().pipe(exit()); // REVIEW
+    rebundle().pipe(exit());
   }
 }
 
 gulp.task('build:js', () => compileJS());
 
-gulp.task('lint:css', () => gulp.src('lib/index.css')
+gulp.task('build:tpl', () => {
+  gulp.src(dirs.src + files.tpl)
+    .pipe(plumber())
+    .pipe(jade())
+    .pipe(gulp.dest(dirs.dest))
+    .pipe(connect.reload());
+});
+
+gulp.task('lint:css', () => gulp.src(dirs.source + files.css)
   .pipe(plumber())
   .pipe(stylelint(
     {
@@ -83,61 +120,37 @@ gulp.task('lint:css', () => gulp.src('lib/index.css')
   )
 ));
 
-gulp.task('lint:js', () => gulp.src(['lib/index.js', 'gulpfile.js'])
+gulp.task('lint:js', () => gulp.src([dirs.src + files.js, 'gulpfile.babel.js'])
   .pipe(plumber())
   .pipe(eslint())
   .pipe(eslint.format())
   .pipe(eslint.failAfterError()));
 
-gulp.task('server', () => {
-  connect.server({
-    root: 'build',
-    livereload: true,
-  });
-});
-
-gulp.task('test:browser', () =>
-  gulp.src('test/behavior/behavior.html')
-    .pipe(mochaPhantomJS())
-);
-
-gulp.task('build:test', () => {
-  gulp.src('test/visual/visual.html')
-    .pipe(plumber())
-    .pipe(rename('index.html'))
-    .pipe(gulp.dest('build'))
-    .pipe(connect.reload());
-
-  gulp.src('test/visual/visual.css')
-    .pipe(plumber())
-    .pipe(rename('test.css'))
-    .pipe(postcss(processors))
-    .pipe(gulp.dest('build'))
-    .pipe(connect.reload());
-});
-
 gulp.task('watch:css', () => {
-  gulp.watch([
-    'lib/**/*.css',
-  ], ['build:css']);
+  gulp.watch(globs.css, ['build:css']);
 });
 
 gulp.task('watch:js', () => compileJS(true));
 
-gulp.task('watch:test', () => {
-  gulp.watch([
-    'test/visual/**/*.*',
-  ], ['build:test']);
+gulp.task('watch:tpl', () => {
+  gulp.watch(globs.tpl, ['build:tpl']);
+});
+
+gulp.task('server', () => {
+  connect.server({
+    root: dirs.dest,
+    livereload: true,
+  });
+});
+
+gulp.task('deploy', () => {
+  gulp.src(dirs.dest + '**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('default', [
   'watch:css',
   'watch:js',
-  'watch:test',
+  'watch:tpl',
   'server',
 ]);
-
-gulp.task('deploy', () => {
-  gulp.src('build/**/*')
-    .pipe(ghPages());
-});
