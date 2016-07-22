@@ -29,7 +29,7 @@ var Stargate = function (_HTMLElement) {
     key: 'createdCallback',
     value: function () {
       function createdCallback() {
-        this.style.color = 'red';
+        // console.log(this);
       }
 
       return createdCallback;
@@ -39,20 +39,14 @@ var Stargate = function (_HTMLElement) {
   return Stargate;
 }(HTMLElement);
 
-exports['default'] = Stargate;
+exports['default'] = document.registerElement('c-stargate', Stargate);
 
 },{}],3:[function(require,module,exports){
 'use strict';
 
 require('document-register-element');
 
-var _stargate = require('./components/stargate/stargate.js');
-
-var _stargate2 = _interopRequireDefault(_stargate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-document.registerElement('c-stargate', _stargate2['default']);
+require('./components/stargate/stargate.js');
 
 },{"./components/stargate/stargate.js":2,"document-register-element":1}]},{},[3])
 
