@@ -1,0 +1,8 @@
+{{#shapes}}
+{{#selector.dimensions}}{{expression}}{{^last}},
+{{/last}}{{/selector.dimensions}} {
+  width: calc({{width.outer}} / {{height.outer}} * 1em);
+  height: 1em;
+}
+
+{{/shapes}}

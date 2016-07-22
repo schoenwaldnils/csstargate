@@ -17,6 +17,11 @@ import autoprefixer from 'gulp-autoprefixer';
 import sass from 'gulp-sass';
 import moduleImporter from 'sass-module-importer';
 
+// SVG
+import svgmin from 'gulp-svgmin';
+import svgSprite from 'gulp-svg-sprite';
+
+
 const dirs = {
   src: 'source/',
   dest: 'build/'
@@ -93,6 +98,47 @@ gulp.task('build:tpl', () => {
     .pipe(jade())
     .pipe(gulp.dest(dirs.dest))
     .pipe(connect.reload());
+});
+
+gulp.task('svgmin-color', () => {
+  return gulp.src('**/*.svg', {cwd: 'assets/images/svgs/color/'})
+    .pipe(plumber())
+    .pipe(svgmin({
+      plugins: [
+        {removeTitle: true}
+      ]
+    })).on('error', error => { console.log(error); })
+    .pipe(gulp.dest(dirs.dest + 'svgs/'));
+});
+
+gulp.task('build:svg-sprite', () => {
+  const config = {
+    mode: {
+      symbol: {
+        render: {
+          css: {
+            template: 'svg-sprite-css.twig'
+          }
+        },
+        prefix: ".Svg--%s",
+        dimensions: "%s",
+        example: true
+      }
+    }
+  };
+
+  return gulp.src('**/*.svg', {cwd: 'source/images/svgs'})
+    .pipe(plumber())
+    .pipe(svgmin({
+      plugins: [
+        {removeTitle: true},
+        {removeAttrs: {
+          attrs: 'fill'
+        }}
+      ]
+    })).on('error', error => { console.log(error); })
+    .pipe(svgSprite(config)).on('error', error => { console.log(error); })
+    .pipe(gulp.dest(dirs.dest + 'svg-sprite/'));
 });
 
 gulp.task('lint:css', () => gulp.src(dirs.source + files.css)

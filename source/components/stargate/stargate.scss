@@ -16,6 +16,11 @@ $screws_spaces: (
   28deg,
   30deg,
 );
+$symboles_n: 39;
+$symboles_d: 360deg / $symboles_n;
+$symboles_size_outer: $stargate_size - ($stargate_size * .105);
+$symboles_size_inner: $stargate_size - ($stargate_size * .215);
+$symboles_height: ($symboles_size_outer - $symboles_size_inner) / 2;
 
 @for $i from 1 through $screws_n {
 
@@ -51,6 +56,72 @@ $screws_spaces: (
     inset 0 0 $stargate_size * .005 $stargate_size * .0525 $c_gray_darkest;
 
   @extend _center;
+}
+
+.Stargate-symboles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $symboles_size_outer;
+  height: $symboles_size_outer;
+  margin: $symboles_size_outer * -.5;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 $stargate_size * .055 $c_gray;
+  transition: transform 500ms;
+  will-change: transform;
+}
+
+.Stargate-symbole {
+
+  @extend _center;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 1px;
+    height: $symboles_height;
+    background-color: $c_gray_darker;
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 1px;
+    height: $symboles_height;
+    background-color: $c_gray_darker;
+    content: "";
+  }
+}
+
+.Stargate-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: $c_gray_lighter;
+  transform: translateX(-50%);
+}
+
+@for $i from 0 through $symboles_n {
+  .Stargate-symbole:nth-child(#{$i}) {
+    transform: rotate($symboles_d * ($i - 1));
+
+    &::before {
+      transform: rotate($symboles_d * -.5) translate(-50%, $symboles_size_outer * -.5);
+    }
+
+    &::after {
+      transform: rotate($symboles_d * .5) translate(-50%, $symboles_size_outer * -.5);
+    }
+
+    .Stargate-svg {
+      transform: translate(-50%, ($symboles_size_inner * -.5) - ($symboles_height * .65));
+    }
+  }
 }
 
 .Stargate-screws {

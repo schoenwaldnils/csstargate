@@ -1,7 +1,7 @@
 class Stargate extends HTMLElement {
   createdCallback() {
-    this.style.color = 'red';
+    // console.log(this);
   }
 }
 
-export default Stargate;
+export default document.registerElement('c-stargate', Stargate);

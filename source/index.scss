@@ -2,6 +2,7 @@ $c_gray_darkest: #444;
 $c_gray_darker: #555;
 $c_gray_dark: #5c5c5c;
 $c_gray: #666;
+$c_gray_lighter: #999;
 
 _center {
   position: absolute;
@@ -23,6 +24,15 @@ body {
 
 body > * {
   flex-shrink: 0;
+}
+
+.Svg {
+  width: 1em;
+  height: 1em;
+}
+
+.Svg > * {
+  fill: currentcolor;
 }
 
 @import "components/stargate/stargate.scss";
