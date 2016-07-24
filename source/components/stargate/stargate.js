@@ -11,6 +11,7 @@ class Stargate extends HTMLElement {
       address: [27, 7, 15, 32, 12, 30, 1],
       speed: 4000, // should pe same as css-transition '.Stargate-symboles'
       delay: 2000,
+      currentIndex: 0,
       isRunning: false,
       selectors: {
         symboles: '.Stargate-symboles',
@@ -36,42 +37,54 @@ class Stargate extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this.options.address = JSON.parse(newValue);
-    this.initIteration();
-    this.runGate();
+    console.log(`name: ${name}`);
+    console.log(`oldValue: ${oldValue}`);
+    console.log(`newValue: ${newValue}`);
+    if (newValue != null) {
+      this.options.address = JSON.parse(newValue);
+      this.runGate();
+    } else {
+      this.resetGate();
+    }
   }
 
-  set address(address) {
-    this.setAttribute('data-address', address);
+  resetGate() {
+    this.options.currentIndex = 0;
+    this.options.address = [];
+    this.elements.symboles[0].style.transform = null;
   }
 
-  initIteration() {
+  rotate() {
     this.options.isRunning = this.options.isRunning === true;
 
-    function* rotate(that) {
-      let i = 0;
-      while (i < that.options.address.length) {
-        that.rotateTo(that.options.address[i]);
-        //this.activateHook(i);
-        yield i++;
-      }
-    }
+    return {
+      next(that) {
+        if (that.options.currentIndex < that.options.address.length) {
+          that.rotateTo(that.options.address[that.options.currentIndex]);
+          that.increaseIndex();
+          return { done: false };
+        }
+        return { done: true };
+      },
+    };
+  }
 
-    this.rotate = rotate(this);
+  increaseIndex() {
+    this.options.currentIndex++;
   }
 
   runGate() {
-    this.rotate.next();
+    this.rotate();
+    this.rotate().next(this);
   }
 
   rotateTo(chevron) {
-    // const speed = !this.options.isRunning ? 1 : this.options.speed;
     this.options.isRunning = true;
 
     console.log(`Rotating to ${chevron}`);
     this.elements.symboles[0].style.transform = `rotate(${360 / 39 * (chevron - 1) * -1}deg)`;
 
-    setTimeout(() => this.rotate.next(), this.options.speed + this.options.delay);
+    setTimeout(() => this.rotate().next(this), this.options.speed + this.options.delay);
   }
 
   activateHook(hook) {
