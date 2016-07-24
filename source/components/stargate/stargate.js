@@ -36,7 +36,7 @@ class Stargate extends HTMLElement {
   }
 
   initIteration() {
-    this.options.isRunning = this.options.isRunning !== true;
+    this.options.isRunning = this.options.isRunning === true;
 
     function* rotate(that) {
       let i = 0;
@@ -54,7 +54,7 @@ class Stargate extends HTMLElement {
   }
 
   rotateTo(chevron) {
-    const speed = (!this.options.isRunning) ? 1 : this.options.speed;
+    const speed = !this.options.isRunning ? 1 : this.options.speed;
     this.options.isRunning = true;
     setTimeout(() => {
       console.log(`Rotating to ${chevron}`);
