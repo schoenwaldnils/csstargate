@@ -16,6 +16,7 @@ class Stargate extends HTMLElement {
         symboles: '.Stargate-symboles',
         symbole: '.Stargate-symbole',
         eventHorizon: '.Stargate-horizon',
+        button: '.Stargate-button',
       },
     };
 
@@ -24,7 +25,10 @@ class Stargate extends HTMLElement {
       this.elements[key] = this.querySelectorAll(this.options.selectors[key]);
     });
 
-    this.setAttribute('data-address', JSON.stringify(this.options.address));
+    // TODO: remove when dhd is ready
+    this.elements.button[0].addEventListener('click', () =>
+      this.setAttribute('data-address', JSON.stringify(this.options.address))
+    );
   }
 
   static get observedAttributes() {
@@ -48,6 +52,7 @@ class Stargate extends HTMLElement {
       let i = 0;
       while (i < that.options.address.length) {
         that.rotateTo(that.options.address[i]);
+        //this.activateHook(i);
         yield i++;
       }
     }
@@ -60,15 +65,13 @@ class Stargate extends HTMLElement {
   }
 
   rotateTo(chevron) {
-    const speed = !this.options.isRunning ? 1 : this.options.speed;
+    // const speed = !this.options.isRunning ? 1 : this.options.speed;
     this.options.isRunning = true;
-    setTimeout(() => {
-      console.log(`Rotating to ${chevron}`);
-      this.elements.symboles[0].style.transform = `rotate(${360 / 39 * (chevron - 1) * -1}deg)`;
-      setTimeout(() => {
-        this.rotate.next();
-      }, this.options.delay);
-    }, speed);
+
+    console.log(`Rotating to ${chevron}`);
+    this.elements.symboles[0].style.transform = `rotate(${360 / 39 * (chevron - 1) * -1}deg)`;
+
+    setTimeout(() => this.rotate.next(), this.options.speed + this.options.delay);
   }
 
   activateHook(hook) {

@@ -17,7 +17,7 @@ $screws_spaces: (
   30deg,
 );
 $symboles_n: 39;
-$symboles_d: 360deg / $symboles_n;
+$symboles_angle: 360deg / $symboles_n;
 $symboles_size_outer: $stargate_size - ($stargate_size * .105);
 $symboles_size_inner: $stargate_size - ($stargate_size * .215);
 $symboles_height: ($symboles_size_outer - $symboles_size_inner) / 2;
@@ -109,14 +109,14 @@ $symboles_height: ($symboles_size_outer - $symboles_size_inner) / 2;
 
 @for $i from 0 through $symboles_n {
   .Stargate-symbole:nth-child(#{$i}) {
-    transform: rotate($symboles_d * ($i - 1));
+    transform: rotate($symboles_angle * ($i - 1));
 
     &::before {
-      transform: rotate($symboles_d * -.5) translate(-50%, $symboles_size_outer * -.5);
+      transform: rotate($symboles_angle * -.5) translate(-50%, $symboles_size_outer * -.5);
     }
 
     &::after {
-      transform: rotate($symboles_d * .5) translate(-50%, $symboles_size_outer * -.5);
+      transform: rotate($symboles_angle * .5) translate(-50%, $symboles_size_outer * -.5);
     }
 
     .Stargate-svg {
@@ -152,4 +152,20 @@ $symboles_height: ($symboles_size_outer - $symboles_size_inner) / 2;
   border-radius: 50%;
 
   @extend _center;
+}
+
+.Stargate-button {
+  position: fixed;
+  top: 1vh;
+  right: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5vh;
+  height: 5vh;
+  font-size: 2vh;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #f00;
 }

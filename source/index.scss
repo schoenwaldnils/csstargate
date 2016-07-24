@@ -13,28 +13,8 @@ _center {
 
 @import "node_modules/normalize.css/normalize.css";
 @import "styles/math";
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #000;
-}
-
-body > * {
-  flex-shrink: 0;
-}
-
-.Svg {
-  width: 1em;
-  height: 1em;
-}
-
-.Svg > * {
-  fill: currentcolor;
-}
-
-@import "components/stargate/stargate.scss";
+@import "styles/base";
+@import "styles/svg";
+@import "components/stargate/stargate";
 
 /* @import "components/dhd.css"; */
