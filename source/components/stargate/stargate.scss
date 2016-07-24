@@ -64,6 +64,7 @@ $symboles_height: ($symboles_size_outer - $symboles_size_inner) / 2;
   width: $symboles_size_outer;
   height: $symboles_size_outer;
   margin: $symboles_size_outer * -.5;
+  font-size: 2vh;
   border-radius: 50%;
   transform: rotate(0);
   box-shadow: inset 0 0 0 $stargate_size * .055 $c_gray;
