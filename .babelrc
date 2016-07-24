@@ -2,5 +2,8 @@
   "presets": [
     "airbnb",
     "es2015"
+  ],
+  plugins: [
+    "transform-runtime"
   ]
 }
