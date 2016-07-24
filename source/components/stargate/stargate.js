@@ -18,7 +18,7 @@ class Stargate extends HTMLElement {
       this.elements[key] = this.querySelectorAll(this.options.selectors[key]);
     });
 
-    this.runGate();
+    this.setAttribute('data-address', JSON.stringify(this.options.address));
   }
 
   static get observedAttributes() {
@@ -26,7 +26,8 @@ class Stargate extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this.options.address = newValue;
+    this.options.address = JSON.parse(newValue);
+    this.initIteration();
     this.runGate();
   }
 
@@ -34,7 +35,9 @@ class Stargate extends HTMLElement {
     this.setAttribute('data-address', address);
   }
 
-  runGate() {
+  initIteration() {
+    this.options.isRunning = this.options.isRunning !== true;
+
     function* rotate(that) {
       let i = 0;
       while (i < that.options.address.length) {
@@ -44,6 +47,9 @@ class Stargate extends HTMLElement {
     }
 
     this.rotate = rotate(this);
+  }
+
+  runGate() {
     this.rotate.next();
   }
 
