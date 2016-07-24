@@ -1,3 +1,9 @@
+if (typeof HTMLElement !== 'function') {
+  const oHTMLElement = () => {};
+  oHTMLElement.prototype = HTMLElement.prototype;
+  HTMLElement = oHTMLElement;
+}
+
 class Stargate extends HTMLElement {
   createdCallback() {
     // default options
