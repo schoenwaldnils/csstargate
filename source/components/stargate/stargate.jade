@@ -1,6 +1,10 @@
+- var symboles_n = 39;
+- var outerEngravings_n = 300;
+- var innerEngravings_n = 480;
+- var triangles_n = 145;
 c-stargate.Stargate
   .Stargate-symboles
-    - for (var i = 1; i <= 39; ++i)
+    - for (var i = 1; i <= symboles_n; ++i)
       .Stargate-symbole
         //- Glyphs are taken from http://stargate.wikia.com/wiki/Glyph
         svg.Stargate-svg.Svg(class="Svg--"+i)
@@ -8,8 +12,25 @@ c-stargate.Stargate
             "xlink:href"="svg-sprite/symbol/svg/sprite.symbol.svg#"+i,
             :role="img")
   .Stargate-outerRing
-  .Stargate-screws
+    .Stargate-outerEngraving
+      - for (var i = 1; i <= outerEngravings_n; ++i)
+        .Stargate-engraving
+          .Stargate-engravingOval
   .Stargate-innerRing
+    .Stargate-innerEngraving
+      - for (var i = 1; i <= innerEngravings_n; ++i)
+        .Stargate-engravingLine
+    .Stargate-triangles
+      - for (var i = 1; i <= triangles_n; ++i)
+        .Stargate-triangle
+
+  .Stargate-screws
+  //- .Stargate-chevrons
   .Stargate-horizon
-  .Stargate-button
+    video.Stargate-video(autoplay loop)
+      source(src="assets/horizon.mp4" type="video/mp4")
+
+  .Stargate-button.Stargate-button--go
     = "Go"
+  .Stargate-button.Stargate-button--stop
+    = "Stop"

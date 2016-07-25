@@ -17,7 +17,8 @@ class Stargate extends HTMLElement {
         symboles: '.Stargate-symboles',
         symbole: '.Stargate-symbole',
         eventHorizon: '.Stargate-horizon',
-        button: '.Stargate-button',
+        buttonGo: '.Stargate-button--go',
+        buttonStop: '.Stargate-button--stop',
       },
     };
 
@@ -27,8 +28,11 @@ class Stargate extends HTMLElement {
     });
 
     // TODO: remove when dhd is ready
-    this.elements.button[0].addEventListener('click', () =>
-      this.setAttribute('data-address', JSON.stringify(this.options.address))
+    this.elements.buttonGo[0].addEventListener('click', () =>
+      this.setAttribute('data-address', JSON.stringify([27, 7, 15, 32, 12, 30, 1]))
+    );
+    this.elements.buttonStop[0].addEventListener('click', () =>
+      this.removeAttribute('data-address')
     );
   }
 
@@ -37,33 +41,31 @@ class Stargate extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log(`name: ${name}`);
-    console.log(`oldValue: ${oldValue}`);
-    console.log(`newValue: ${newValue}`);
     if (newValue != null) {
       this.options.address = JSON.parse(newValue);
       this.runGate();
     } else {
+      this.options.address = [];
       this.resetGate();
     }
   }
 
   resetGate() {
+    this.elements.symboles[0].removeAttribute('style');
     this.options.currentIndex = 0;
-    this.options.address = [];
-    this.elements.symboles[0].style.transform = null;
+    this.options.isRunning = false;
+    this.setHorizon(false);
   }
 
   rotate() {
-    this.options.isRunning = this.options.isRunning === true;
-
     return {
-      next(that) {
-        if (that.options.currentIndex < that.options.address.length) {
-          that.rotateTo(that.options.address[that.options.currentIndex]);
+      next(that, index, address) {
+        if (index < address.length) {
+          that.rotateTo(that.options.address[index]);
           that.increaseIndex();
           return { done: false };
         }
+        that.setHorizon(true);
         return { done: true };
       },
     };
@@ -73,18 +75,27 @@ class Stargate extends HTMLElement {
     this.options.currentIndex++;
   }
 
+  setHorizon(state) {
+    if (state === true && this.options.isRunning) {
+      this.elements.eventHorizon[0].classList.add('is-active');
+    } else {
+      this.elements.eventHorizon[0].classList.remove('is-active');
+    }
+  }
+
   runGate() {
-    this.rotate();
-    this.rotate().next(this);
+    this.options.isRunning = true;
+    this.rotate().next(this, this.options.currentIndex, this.options.address);
   }
 
   rotateTo(chevron) {
-    this.options.isRunning = true;
-
     console.log(`Rotating to ${chevron}`);
     this.elements.symboles[0].style.transform = `rotate(${360 / 39 * (chevron - 1) * -1}deg)`;
 
-    setTimeout(() => this.rotate().next(this), this.options.speed + this.options.delay);
+    setTimeout(() =>
+      this.rotate().next(this, this.options.currentIndex, this.options.address),
+      this.options.speed + this.options.delay
+    );
   }
 
   activateHook(hook) {

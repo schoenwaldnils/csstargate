@@ -141,6 +141,12 @@ gulp.task('build:svg-sprite', () => {
     .pipe(gulp.dest(dirs.dest + 'svg-sprite/'));
 });
 
+gulp.task('build:assets', () => {
+  gulp.src(dirs.src + 'assets/**/*.*')
+    .pipe(plumber())
+    .pipe(gulp.dest(dirs.dest + 'assets'));
+});
+
 gulp.task('lint:css', () => gulp.src(dirs.source + files.css)
   .pipe(plumber())
   .pipe(stylelint(
@@ -171,6 +177,10 @@ gulp.task('watch:tpl', () => {
   gulp.watch(globs.tpl, ['build:tpl']);
 });
 
+gulp.task('watch:assets', () => {
+  gulp.watch([dirs.src + 'assets/**/*.*',], ['build:assets']);
+});
+
 gulp.task('server', () => {
   connect.server({
     root: dirs.dest,
@@ -187,5 +197,6 @@ gulp.task('default', [
   'watch:css',
   'watch:js',
   'watch:tpl',
+  'watch:assets',
   'server',
 ]);

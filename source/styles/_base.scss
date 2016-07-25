@@ -1,3 +1,10 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
 body {
   display: flex;
   align-items: center;
