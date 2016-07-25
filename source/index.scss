@@ -1,10 +1,4 @@
-$c_gray_darkest: #444;
-$c_gray_darker: #555;
-$c_gray_dark: #5c5c5c;
-$c_gray: #666;
-$c_gray_lighter: #999;
-
-_center {
+%center {
   position: absolute;
   top: 50%;
   left: 50%;
