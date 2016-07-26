@@ -301,12 +301,12 @@ $c_chevron_light_active: lightblue;
     polygon(
       0% 0%,
       25% 0%,
-      39% 61.5%,
-      61% 61.5%,
+      39% 68%,
+      61% 68%,
       75% 0%,
       100% 0%,
-      68.55% 100%,
-      31.45% 100%
+      68% 100%,
+      32% 100%
     );
   background:
     linear-gradient(
@@ -342,11 +342,16 @@ $c_chevron_light_active: lightblue;
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: 1.6rem;
-    height: 0;
-    border-right: .33rem solid transparent;
-    border-bottom: 1.3rem solid lighten($c_chevron_hook, 3%);
-    border-left: .33rem solid transparent;
+    width: 1.525rem;
+    height: 1.025rem;
+    clip-path:
+      polygon(
+        20% 0%,
+        80% 0%,
+        100% 100%,
+        0% 100%
+      );
+    background-color: lighten($c_chevron_hook, 3%);
     content: "";
     transform: translateX(-50%);
   }
