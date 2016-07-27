@@ -31,12 +31,16 @@ c-stargate.Stargate
     - for (var i = 1; i <= shevrons_n; ++i)
       .Stargate-chevron
         .Stargate-chevronHook
+        .Stargate-chevronHookActive
         .Stargate-chevronPlate
+        .Stargate-chevronLight
   .Stargate-horizon
-    video.Stargate-video(autoplay loop)
+    video.Stargate-video(loop)
       source(src="assets/horizon.mp4" type="video/mp4")
 
   .Stargate-button.Stargate-button--go
     = "Go"
   .Stargate-button.Stargate-button--stop
     = "Stop"
+  .Stargate-button.Stargate-button--toggleChevrons
+    = "TC"

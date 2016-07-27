@@ -5,6 +5,8 @@ $stargate_inner_ring_size: 33.3rem;
 $stargate_horizon_size: $stargate_inner_ring_size;
 $shevron_n: 9;
 $shevron_angle: 360deg / $shevron_n;
+$chevron_transition: 150ms;
+$chevron_lock_transition: 600ms;
 $screws_n: 6;
 $screws_radius: 22.0275rem;
 $screws_size: .27rem;
@@ -36,8 +38,9 @@ $c_symboles_background: #4a4a4a;
 $c_symboles_border: #383838;
 $c_chevron_plate: #383838;
 $c_chevron_hook: #343434;
-$c_chevron_light: #fc9104;
-$c_chevron_light_active: lightblue;
+$c_chevron_light_border: #343434;
+$c_chevron_light: #4e423e;
+$c_chevron_light_active: #d98413;
 
 @for $i from 1 through $screws_n {
 
@@ -337,6 +340,7 @@ $c_chevron_light_active: lightblue;
       $c_chevron_hook 1.5rem
     );
   transform: translateX(-50%);
+  transition: transform $chevron_lock_transition;
 
   &::before {
     position: absolute;
@@ -354,6 +358,106 @@ $c_chevron_light_active: lightblue;
     background-color: lighten($c_chevron_hook, 3%);
     content: "";
     transform: translateX(-50%);
+  }
+
+  .Stargate-chevron.is-open & {
+    transform: translateX(-50%) translateY(.5rem);
+  }
+}
+
+.Stargate-chevronHookActive {
+
+  @extend .Stargate-chevronHook;
+
+  background:
+    linear-gradient(
+      $c_chevron_hook 0%,
+      $c_chevron_hook .1875rem,
+      $c_chevron_light_active .1875rem,
+      $c_chevron_light_active .25rem,
+      $c_chevron_hook .25rem,
+      $c_chevron_hook .4375rem,
+      $c_chevron_light_active .4375rem,
+      $c_chevron_light_active .5rem,
+      $c_chevron_hook .5rem,
+      $c_chevron_hook .6875rem,
+      $c_chevron_light_active .6875rem,
+      $c_chevron_light_active .75rem,
+      $c_chevron_hook .75rem,
+      $c_chevron_hook .9375rem,
+      $c_chevron_light_active .9375rem,
+      $c_chevron_light_active 1rem,
+      $c_chevron_hook 1rem,
+      $c_chevron_hook 1.1875rem,
+      $c_chevron_light_active 1.1875rem,
+      $c_chevron_light_active 1.25rem,
+      $c_chevron_hook 1.25rem,
+      $c_chevron_hook 1.4375rem,
+      $c_chevron_light_active 1.4375rem,
+      $c_chevron_light_active 1.5rem,
+      $c_chevron_hook 1.5rem
+    );
+  opacity: 0;
+  transition: opacity $chevron_transition;
+
+  .Stargate-chevron.is-active & {
+    opacity: 1;
+  }
+
+  .Stargate-chevron.is-open & {
+    transform: translateX(-50%) translateY(.5rem);
+  }
+}
+
+.Stargate-chevronLight {
+  position: absolute;
+  top: -.1rem;
+  left: 50%;
+  width: 2.26rem;
+  height: 2.78rem;
+  clip-path:
+    polygon(
+      2% 0%,
+      98% 0%,
+      65% 100%,
+      35% 100%
+    );
+  background-color: $c_chevron_light_border;
+  transform: translateX(-50%);
+  transition: transform $chevron_lock_transition;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: -.05rem;
+    left: 50%;
+    width: 1.8rem;
+    height: 2.3rem;
+    clip-path:
+      polygon(
+        2% 0%,
+        98% 0%,
+        63% 100%,
+        37% 100%
+      );
+    background-color: $c_chevron_light;
+    content: "";
+    transform: translateX(-50%);
+    transition: background 500ms;
+  }
+
+  &::after {
+    background: linear-gradient($c_chevron_light_active 0%, darken($c_chevron_light_active, 5%) 100%);
+    opacity: 0;
+    transition: $chevron_transition;
+  }
+
+  .Stargate-chevron.is-active &::after {
+    opacity: 1;
+  }
+
+  .Stargate-chevron.is-open & {
+    transform: translateX(-50%) translateY(-.5rem);
   }
 }
 
@@ -373,10 +477,9 @@ $c_chevron_light_active: lightblue;
   width: $stargate_horizon_size;
   height: $stargate_horizon_size;
   overflow: hidden;
-  background-color: #33f;
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 1000ms;
+  transition: opacity 300ms;
 
   @extend %center;
 
@@ -415,4 +518,9 @@ $c_chevron_light_active: lightblue;
 .Stargate-button--stop {
   top: 7vh;
   background-color: #b00;
+}
+
+.Stargate-button--toggleChevrons {
+  top: 13vh;
+  background-color: #008;
 }

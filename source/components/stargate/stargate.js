@@ -11,14 +11,19 @@ class Stargate extends HTMLElement {
       address: [27, 7, 15, 32, 12, 30, 1],
       speed: 4000, // should pe same as css-transition '.Stargate-symboles'
       delay: 2000,
+      lockTime: 600,
       currentIndex: 0,
       isRunning: false,
+      hooks: [1, 2, 3, 6, 7, 8, 0],
       selectors: {
         symboles: '.Stargate-symboles',
         symbole: '.Stargate-symbole',
         eventHorizon: '.Stargate-horizon',
+        chevrons: '.Stargate-chevron',
+        video: '.Stargate-video',
         buttonGo: '.Stargate-button--go',
         buttonStop: '.Stargate-button--stop',
+        buttonTC: '.Stargate-button--toggleChevrons',
       },
     };
 
@@ -34,6 +39,9 @@ class Stargate extends HTMLElement {
     this.elements.buttonStop[0].addEventListener('click', () =>
       this.removeAttribute('data-address')
     );
+    this.elements.buttonTC[0].addEventListener('click', () =>
+      this.toggleChevrons()
+    );
   }
 
   static get observedAttributes() {
@@ -43,6 +51,7 @@ class Stargate extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (newValue != null) {
       this.options.address = JSON.parse(newValue);
+      this.resetGate();
       this.runGate();
     } else {
       this.options.address = [];
@@ -55,13 +64,14 @@ class Stargate extends HTMLElement {
     this.options.currentIndex = 0;
     this.options.isRunning = false;
     this.setHorizon(false);
+    this.elements.chevrons.forEach((element) => element.classList.remove('is-active'));
   }
 
   rotate() {
     return {
       next(that, index, address) {
         if (index < address.length) {
-          that.rotateTo(that.options.address[index]);
+          that.rotateTo(index);
           that.increaseIndex();
           return { done: false };
         }
@@ -78,8 +88,11 @@ class Stargate extends HTMLElement {
   setHorizon(state) {
     if (state === true && this.options.isRunning) {
       this.elements.eventHorizon[0].classList.add('is-active');
+      this.elements.video[0].play();
     } else {
       this.elements.eventHorizon[0].classList.remove('is-active');
+      this.elements.video[0].pause();
+      this.elements.video[0].load();
     }
   }
 
@@ -88,9 +101,15 @@ class Stargate extends HTMLElement {
     this.rotate().next(this, this.options.currentIndex, this.options.address);
   }
 
-  rotateTo(chevron) {
+  rotateTo(index) {
+    const chevron = this.options.address[index];
     console.log(`Rotating to ${chevron}`);
     this.elements.symboles[0].style.transform = `rotate(${360 / 39 * (chevron - 1) * -1}deg)`;
+
+    setTimeout(() =>
+      this.activateHook(this.options.hooks[index]),
+      this.options.speed
+    );
 
     setTimeout(() =>
       this.rotate().next(this, this.options.currentIndex, this.options.address),
@@ -98,8 +117,24 @@ class Stargate extends HTMLElement {
     );
   }
 
-  activateHook(hook) {
-    console.log(hook);
+  activateHook(index) {
+    this.lockChevron();
+    setTimeout(() =>
+      this.elements.chevrons[index].classList.add('is-active'),
+      this.options.lockTime
+    );
+  }
+
+  lockChevron() {
+    this.elements.chevrons[0].classList.add('is-open');
+    setTimeout(() =>
+      this.elements.chevrons[0].classList.remove('is-open'),
+      this.options.lockTime / 2
+    );
+  }
+
+  toggleChevrons() {
+    this.elements.chevrons.forEach((element) => element.classList.toggle('is-active'));
   }
 }
 
