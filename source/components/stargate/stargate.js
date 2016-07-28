@@ -31,6 +31,8 @@ class Stargate extends HTMLElement {
     Object.keys(this.options.selectors).forEach((key) => {
       this.elements[key] = this.querySelectorAll(this.options.selectors[key]);
     });
+
+    this.calcFontSize();
   }
 
   static get observedAttributes() {
@@ -124,6 +126,26 @@ class Stargate extends HTMLElement {
       this.elements.chevrons[0].classList.remove('is-open'),
       this.options.lockTime - 200
     );
+  }
+
+  calcFontSize() {
+    const html = document.querySelector('html');
+    const windowHeight = window.innerHeight;
+    const rootFontSizePX = window.getComputedStyle(html, null).getPropertyValue('font-size');
+    let rootFontSize = parseInt(rootFontSizePX, 10);
+    let stargateHeight = rootFontSize * 46;
+
+    while (windowHeight >= stargateHeight) {
+      rootFontSize = rootFontSize + 2;
+      stargateHeight = rootFontSize * 46;
+    }
+
+    while (windowHeight <= stargateHeight) {
+      rootFontSize = rootFontSize - 2;
+      stargateHeight = rootFontSize * 46;
+    }
+
+    html.style.fontSize = `${rootFontSize}px`;
   }
 }
 
