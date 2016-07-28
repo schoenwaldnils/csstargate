@@ -440,14 +440,30 @@ $c_chevron_light_active: #d98413;
         63% 100%,
         37% 100%
       );
-    background-color: $c_chevron_light;
+    background:
+      linear-gradient(
+        lighten($c_chevron_light, 5%) 0%,
+        lighten($c_chevron_light, 5%) 15%,
+        $c_chevron_light 15%,
+        $c_chevron_light 45%,
+        darken($c_chevron_light, 5%) 45%,
+        darken($c_chevron_light, 5%) 100%
+      );
     content: "";
     transform: translateX(-50%);
     transition: background 500ms;
   }
 
   &::after {
-    background: linear-gradient($c_chevron_light_active 0%, darken($c_chevron_light_active, 5%) 100%);
+    background:
+      linear-gradient(
+        lighten($c_chevron_light_active, 5%) 0%,
+        lighten($c_chevron_light_active, 5%) 15%,
+        $c_chevron_light_active 15%,
+        $c_chevron_light_active 45%,
+        darken($c_chevron_light_active, 5%) 45%,
+        darken($c_chevron_light_active, 5%) 100%
+      );
     opacity: 0;
     transition: $chevron_transition;
   }

@@ -6,11 +6,12 @@
 }
 
 html {
-  // font-size: 2vh;
+  font-size: 12px;
 }
 
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -20,4 +21,14 @@ body {
 
 body > * {
   flex-shrink: 0;
+}
+
+.wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.data::before {
+  content: attr(data-address);
+  color: #fff;
 }
