@@ -31,17 +31,6 @@ class Stargate extends HTMLElement {
     Object.keys(this.options.selectors).forEach((key) => {
       this.elements[key] = this.querySelectorAll(this.options.selectors[key]);
     });
-
-    // TODO: remove when dhd is ready
-    this.elements.buttonGo[0].addEventListener('click', () =>
-      this.setAttribute('data-address', JSON.stringify([27, 7, 15, 32, 12, 30, 1]))
-    );
-    this.elements.buttonStop[0].addEventListener('click', () =>
-      this.removeAttribute('data-address')
-    );
-    this.elements.buttonTC[0].addEventListener('click', () =>
-      this.toggleChevrons()
-    );
   }
 
   static get observedAttributes() {
@@ -65,6 +54,10 @@ class Stargate extends HTMLElement {
     this.options.isRunning = false;
     this.setHorizon(false);
     this.elements.chevrons.forEach((element) => element.classList.remove('is-active'));
+    clearTimeout(this.timerSpeed);
+    clearTimeout(this.timerHook);
+    clearTimeout(this.timerLockTime);
+    clearTimeout(this.timerAktivateChevron);
   }
 
   rotate() {
@@ -106,12 +99,12 @@ class Stargate extends HTMLElement {
     console.log(`Rotating to ${chevron}`);
     this.elements.symboles[0].style.transform = `rotate(${360 / 39 * (chevron - 1) * -1}deg)`;
 
-    setTimeout(() =>
+    this.timerSpeed = setTimeout(() =>
       this.activateHook(this.options.hooks[index]),
       this.options.speed
     );
 
-    setTimeout(() =>
+    this.timerAktivateChevron = setTimeout(() =>
       this.rotate().next(this, this.options.currentIndex, this.options.address),
       this.options.speed + this.options.delay
     );
@@ -119,7 +112,7 @@ class Stargate extends HTMLElement {
 
   activateHook(index) {
     this.lockChevron();
-    setTimeout(() =>
+    this.timerLockTime = setTimeout(() =>
       this.elements.chevrons[index].classList.add('is-active'),
       this.options.lockTime
     );
@@ -127,14 +120,10 @@ class Stargate extends HTMLElement {
 
   lockChevron() {
     this.elements.chevrons[0].classList.add('is-open');
-    setTimeout(() =>
+    this.timerHook = setTimeout(() =>
       this.elements.chevrons[0].classList.remove('is-open'),
       this.options.lockTime - 200
     );
-  }
-
-  toggleChevrons() {
-    this.elements.chevrons.forEach((element) => element.classList.toggle('is-active'));
   }
 }
 

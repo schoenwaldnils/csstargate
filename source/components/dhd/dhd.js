@@ -22,10 +22,6 @@ class Dhd extends HTMLElement {
       this.elements[key] = this.querySelectorAll(this.options.selectors[key]);
     });
 
-    this.elements.symbole[0].addEventListener('click', () =>
-      this.setAttribute('data-address', JSON.stringify([27, 7, 15, 32, 12, 30, 1]))
-    );
-
     this.elements.submit[0].addEventListener('click', () =>
       this.processClickSubmit()
     );
@@ -51,8 +47,9 @@ class Dhd extends HTMLElement {
     if (this.options.address.length < 6 && !element.classList.contains('is-active')) {
       const chevron = element.getAttribute('data-chevron');
       this.options.address.push(chevron);
+      this.setOption('address', this.options.address);
+      this.setOption('address', this.options.address);
       element.classList.add('is-active');
-      // this.options.address.push(target.getAttribute('data-address'));
     }
   }
 
@@ -63,11 +60,25 @@ class Dhd extends HTMLElement {
   resetDhd() {
     this.options.address = [];
     this.elements.symbole.forEach((symbol) => symbol.classList.remove('is-active'));
+    this.elements.submit[0].classList.remove('is-active');
   }
 
   sendAdress(address) {
-    // document.querySelectorAll('.data')[0].setAttribute('data-address', address);
     document.querySelectorAll('.Stargate')[0].setAttribute('data-address', JSON.stringify(address));
+  }
+
+  setOption(key, value) {
+    switch (key) {
+      case 'address':
+        this.options[key] = value;
+        if (value.length === 6) {
+          this.elements.submit[0].classList.add('is-active');
+        }
+        break;
+      default:
+        this.options[key] = value;
+        break;
+    }
   }
 }
 

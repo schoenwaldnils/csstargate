@@ -9,9 +9,12 @@ $symboles_angle: 360deg / $symboles_n;
 $c_dhd: #333;
 $c_chevron: #444;
 $c_chevron_active: $c_chevron_light_active;
-$c_symbole: #333;
+//$c_symbole: #333;
 $c_submit: $c_chevron_light;
+$c_submit_active: #a32714;
 $c_reset: #600;
+
+$_transition_submit: 300ms;
 
 .Dhd {
   position: relative;
@@ -49,8 +52,13 @@ $c_reset: #600;
 
   @extend %center;
 
+  &:hover {
+    background-color: lighten($c_chevron, 5%);
+  }
+
   &.is-active {
     color: $c_chevron_active;
+    background-color: lighten($c_chevron, 5%);
   }
 }
 
@@ -103,7 +111,7 @@ $c_reset: #600;
 }
 
 .Dhd-symbole--inner .Dhd-svg {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .Dhd-submit {
@@ -113,8 +121,13 @@ $c_reset: #600;
   background-color: $c_submit;
   border-radius: 50%;
   box-shadow: 0 0 0 .5rem $c_dhd;
+  transition: background-color $_transition_submit;
 
   @extend %center;
+
+  &.is-active {
+    background-color: $c_submit_active;
+  }
 }
 
 .Dhd-reset {
