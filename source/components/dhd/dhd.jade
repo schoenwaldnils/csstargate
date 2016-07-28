@@ -1,0 +1,28 @@
+- var symboles_n = 39;
+- var symboles_ring = 18;
+- var symboles_outer = [24, 6, 29, 38, 34, 12, 37, 11, 21, 3, 4, 20, 9, 5, 32, 13, 19, 22, 7]
+- var symboles_inner = [28, 10, 33, 39, 26, 23, 18, 14, 17, 2, 25, 36, 8, 27, 31, 15, 35, 30, 16]
+
+c-dhd.Dhd
+  .Dhd-ring.Dhd-ring--outer
+    .Dhd-symboles.Dhd-symboles--outer
+      - for (var i = 1; i <= symboles_ring; ++i)
+        .Dhd-symbole.Dhd-symbole--outer('data-chevron'=symboles_outer[i - 1])
+          //- Glyphs are taken from http://stargate.wikia.com/wiki/Glyph
+          svg.Dhd-svg.Svg
+            use("xmlns:xlink"="http://www.w3.org/1999/xlink",
+              "xlink:href"="svg-sprite/symbol/svg/sprite.symbol.svg#"+symboles_outer[i - 1],
+              :role="img")
+
+  .Dhd-ring.Dhd-ring--inner
+    .Dhd-symboles.Dhd-symboles--inner
+      - for (var i = 1; i <= symboles_ring; ++i)
+        .Dhd-symbole.Dhd-symbole--inner('data-chevron'=symboles_inner[i - 1])
+          //- Glyphs are taken from http://stargate.wikia.com/wiki/Glyph
+          svg.Dhd-svg.Svg
+            use("xmlns:xlink"="http://www.w3.org/1999/xlink",
+              "xlink:href"="svg-sprite/symbol/svg/sprite.symbol.svg#"+symboles_inner[i - 1],
+              :role="img")
+
+  .Dhd-submit
+  .Dhd-reset

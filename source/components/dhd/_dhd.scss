@@ -1,0 +1,128 @@
+/** @define Dhd */
+
+$dhd_size: 18rem;
+$ring_outer_size: 17.5rem;
+$ring_inner_size: 11rem;
+$symboles_n: 18;
+$symboles_angle: 360deg / $symboles_n;
+
+$c_dhd: #333;
+$c_chevron: #444;
+$c_chevron_active: $c_chevron_light_active;
+$c_symbole: #333;
+$c_submit: $c_chevron_light;
+$c_reset: #600;
+
+.Dhd {
+  position: relative;
+  width: $dhd_size;
+  height: $dhd_size;
+  background-color: $c_dhd;
+  border-radius: 50%;
+}
+
+.Dhd-ring {
+  border-radius: 50%;
+
+  @extend %center;
+}
+
+.Dhd-ring--outer {
+  width: $ring_outer_size;
+  height: $ring_outer_size;
+}
+
+.Dhd-ring--inner {
+  width: $ring_inner_size;
+  height: $ring_inner_size;
+  background-color: $c_dhd;
+  box-shadow: 0 0 0 .25rem $c_dhd;
+}
+
+.Dhd-symbole {
+  display: flex;
+  justify-content: center;
+  color: $c_symbole;
+  cursor: pointer;
+  background-color: $c_chevron;
+  border-radius: 50%;
+
+  @extend %center;
+
+  &.is-active {
+    color: $c_chevron_active;
+  }
+}
+
+.Dhd-symbole--outer {
+  $a: sin($symboles_angle) * ($ring_outer_size / 2);
+  $b: $a / 2;
+  $x: $ring_outer_size * .5 + $b;
+  $-x: $ring_outer_size * .5 - $b;
+
+  width: $ring_outer_size;
+  height: $ring_outer_size;
+  padding-top: .75rem;
+  clip-path:
+    polygon(
+      $-x 0%,
+      $x 0%,
+      50% 50%
+    );
+}
+
+.Dhd-symbole--inner {
+  $a: sin($symboles_angle) * ($ring_inner_size / 2);
+  $b: $a / 2;
+  $x: $ring_inner_size * .5 + $b;
+  $-x: $ring_inner_size * .5 - $b;
+
+  width: $ring_inner_size;
+  height: $ring_inner_size;
+  padding-top: .6rem;
+  clip-path:
+    polygon(
+      $-x 0%,
+      $x 0%,
+      50% 50%
+    );
+}
+
+@for $i from 0 through $symboles_n {
+  .Dhd-symbole:nth-child(#{$i}) {
+    transform: translate(-50%, -50%) rotate($symboles_angle * ($i - 1));
+  }
+}
+
+.Dhd-svg {
+  transform: rotate(180deg);
+}
+
+.Dhd-symbole--outer .Dhd-svg {
+  font-size: 1.4rem;
+}
+
+.Dhd-symbole--inner .Dhd-svg {
+  font-size: 1.1rem;
+}
+
+.Dhd-submit {
+  width: 5.24rem;
+  height: 5.24rem;
+  cursor: pointer;
+  background-color: $c_submit;
+  border-radius: 50%;
+  box-shadow: 0 0 0 .5rem $c_dhd;
+
+  @extend %center;
+}
+
+.Dhd-reset {
+  position: absolute;
+  right: .75rem;
+  bottom: .75rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background-color: $c_reset;
+  border-radius: 50%;
+}
