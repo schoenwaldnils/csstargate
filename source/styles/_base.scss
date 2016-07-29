@@ -14,8 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   background-color: #000;
 }
 
@@ -25,10 +24,7 @@ body > * {
 
 .wrap {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
-}
-
-.data::before {
-  content: attr(data-address);
-  color: #fff;
+  justify-content: center;
 }
