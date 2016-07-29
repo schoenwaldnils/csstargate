@@ -129,23 +129,25 @@ class Stargate extends HTMLElement {
   }
 
   calcFontSize() {
-    const html = document.querySelector('html');
-    const windowHeight = window.innerHeight;
-    const rootFontSizePX = window.getComputedStyle(html, null).getPropertyValue('font-size');
-    let rootFontSize = parseInt(rootFontSizePX, 10);
-    let stargateHeight = rootFontSize * 46;
+    if (window.innerWidth >= 680) {
+      const html = document.querySelector('html');
+      const windowHeight = window.innerHeight;
+      const rootFontSizePX = window.getComputedStyle(html, null).getPropertyValue('font-size');
+      let rootFontSize = parseInt(rootFontSizePX, 10);
+      let stargateHeight = rootFontSize * 46;
 
-    while (windowHeight >= stargateHeight) {
-      rootFontSize = rootFontSize + 2;
-      stargateHeight = rootFontSize * 46;
+      while (windowHeight >= stargateHeight) {
+        rootFontSize = rootFontSize + 2;
+        stargateHeight = rootFontSize * 46;
+      }
+
+      while (windowHeight <= stargateHeight) {
+        rootFontSize = rootFontSize - 2;
+        stargateHeight = rootFontSize * 46;
+      }
+
+      html.style.fontSize = `${rootFontSize}px`;
     }
-
-    while (windowHeight <= stargateHeight) {
-      rootFontSize = rootFontSize - 2;
-      stargateHeight = rootFontSize * 46;
-    }
-
-    html.style.fontSize = `${rootFontSize}px`;
   }
 }
 
