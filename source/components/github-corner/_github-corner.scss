@@ -1,0 +1,50 @@
+/** @define GithubCorner */
+
+.GithubCorner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 1em;
+  height: 1em;
+  clip-path:
+    polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%
+    );
+  font-size: 4rem;
+}
+
+.GithubCorner-svg {
+  width: 1em;
+  height: 1em;
+  color: #000;
+  border: 0;
+  fill: #fff;
+}
+
+.GithubCorner-octoArm,
+.GithubCorner-octoBody {
+  fill: currentcolor;
+}
+
+.GithubCorner-octoArm {
+  transform-origin: bottom right;
+  animation: octocat-wave 560ms ease-in-out;
+
+  .GithubCorner:hover & {
+    animation: octocat-wave 560ms ease-in-out infinite;
+  }
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% { transform: rotate(0); }
+
+  20%,
+  60% { transform: rotate(-25deg); }
+
+  40%,
+  80% { transform: rotate(10deg); }
+}
