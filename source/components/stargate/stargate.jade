@@ -2,7 +2,7 @@
 - var outerEngravings_n = 300;
 - var innerEngravings_n = 480;
 - var triangles_n = 145;
-- var shevrons_n = 9;
+- var shevrons_n = 12;
 
 c-stargate.Stargate
   .Stargate-symboles
@@ -29,7 +29,7 @@ c-stargate.Stargate
   .Stargate-screws
   .Stargate-chevrons
     - for (var i = 1; i <= shevrons_n; ++i)
-      .Stargate-chevron
+      .Stargate-chevron.is-active
         .Stargate-chevronHook
         .Stargate-chevronHookActive
         .Stargate-chevronPlate

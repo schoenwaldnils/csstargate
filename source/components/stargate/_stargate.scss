@@ -3,7 +3,7 @@
 $stargate_size: 45rem;
 $stargate_inner_ring_size: 33.3rem;
 $stargate_horizon_size: $stargate_inner_ring_size;
-$shevron_n: 9;
+$shevron_n: 12;
 $shevron_angle: 360deg / $shevron_n;
 $chevron_transition: 150ms;
 $chevron_lock_transition: 200ms;
@@ -33,14 +33,14 @@ $triangles_angle: 360deg / $triangles_n;
 $c_gate_metal: #444;
 $c_engraving: #383838;
 $c_screw: #333;
-$c_symbole: #666;
+$c_symbole: #0f0;
 $c_symboles_background: #4a4a4a;
 $c_symboles_border: #383838;
 $c_chevron_plate: #383838;
 $c_chevron_hook: #343434;
 $c_chevron_light_border: #343434;
 $c_chevron_light: #4e423e;
-$c_chevron_light_active: #d98413;
+$c_chevron_light_active: #fff;
 
 @for $i from 1 through $screws_n {
 

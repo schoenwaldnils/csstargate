@@ -32,7 +32,7 @@ class Stargate extends HTMLElement {
       this.elements[key] = this.querySelectorAll(this.options.selectors[key]);
     });
 
-    this.calcFontSize();
+    //this.calcFontSize();
   }
 
   static get observedAttributes() {

@@ -6,7 +6,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 32px;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #000;
+  background-color: #0f0;
 }
 
 body > * {
@@ -28,4 +28,8 @@ body > * {
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
+}
+
+.hide {
+  opacity: 0;
 }

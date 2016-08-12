@@ -48,7 +48,6 @@ class Dhd extends HTMLElement {
       const chevron = element.getAttribute('data-chevron');
       this.options.address.push(chevron);
       this.setOption('address', this.options.address);
-      this.setOption('address', this.options.address);
       element.classList.add('is-active');
     }
   }
