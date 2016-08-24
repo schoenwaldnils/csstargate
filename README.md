@@ -1,21 +1,12 @@
-# CSS Stargate or short CSStargate
+# CSStargate
 
-## Installation
+### A Stargate build mainly with CSS, and a bit js for dailing
 
-    $ npm install
+### How to use it
 
-## Available tasks
- 
-`npm run ...` | Description
----|---
-build | Compile and bundle all CSS and JS files.
-build:css | Compile and bundle all CSS files to `build/index.css`.
-build:js | Compile and bundle all JS files to `build/index.js`.
-build:test | Copy and preprocess idiomatic test files to `build`.
-deploy | Deploy `gh-pages` branch.
-start | Start a development server at `http://localhost:8080`.
-test | Run all tests. 
-test:browser | Run all browser tests.
-test:lint-css | Lint all CSS files.
-test:lint-js | Lint all JS files.
-watch | Watch for file changes in `lib` and trigger a new build.
+1. Dail any `5` Chevron length address on the DHD.
+2. Press the glowing center button.
+3. Watch the Stargate dailing your choosen address.
+4. Press the small red button to reset the gate.
+
+####[Klick here to get to the live Stargate](http://schoenwaldnils.github.com/csstargate)
