@@ -11,7 +11,6 @@ import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import stylelint from 'gulp-stylelint';
 import watchify from 'watchify';
-import ghPages from 'gulp-gh-pages';
 import jade from 'gulp-jade';
 import autoprefixer from 'gulp-autoprefixer';
 import sass from 'gulp-sass';
@@ -24,7 +23,7 @@ import svgSprite from 'gulp-svg-sprite';
 
 const dirs = {
   src: 'source/',
-  dest: 'build/'
+  dest: 'docs/'
 };
 
 const files = {
@@ -186,11 +185,6 @@ gulp.task('server', () => {
     root: dirs.dest,
     livereload: true,
   });
-});
-
-gulp.task('deploy', () => {
-  gulp.src(dirs.dest + '**/*')
-    .pipe(ghPages());
 });
 
 gulp.task('default', [
