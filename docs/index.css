@@ -4311,10 +4311,10 @@ body > * {
   height: 40.316rem;
   margin: -20.158rem;
   font-size: 1.3rem;
+  border: solid #4a4a4a 2.55rem;
   border-radius: 50%;
   -webkit-transform: rotate(0);
           transform: rotate(0);
-  box-shadow: inset 0 0 0 2.55rem #4a4a4a;
   -webkit-transition: -webkit-transform 4000ms ease-in-out;
   transition: -webkit-transform 4000ms ease-in-out;
   transition: transform 4000ms ease-in-out;
