@@ -1,6 +1,6 @@
 # CSStargate
 
-### A Stargate build mainly with CSS, and a bit js for dailing
+### A Stargate build mainly with CSS, and a bit js for dialing
 
 ### How to use it
 
