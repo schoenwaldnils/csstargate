@@ -212,9 +212,9 @@ $c_chevron_light_active: #d98413;
   height: $symboles_size_outer;
   margin: $symboles_size_outer * -.5;
   font-size: 1.3rem;
+  border: solid $c_symboles_background $symboles_height;
   border-radius: 50%;
   transform: rotate(0);
-  box-shadow: inset 0 0 0 $symboles_height $c_symboles_background;
   transition: transform 4000ms ease-in-out;
   will-change: transform;
 }
