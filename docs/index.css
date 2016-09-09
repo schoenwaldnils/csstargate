@@ -400,6 +400,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
+  color: #fff;
   background-color: #000; }
 
 body > * {
@@ -499,7 +500,8 @@ body > * {
   width: 45rem;
   height: 45rem;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 0.225rem #2b2b2b, inset 0 0 0 0.28125rem #040404, inset 0 0 0 0.675rem #444, inset 0 0 0 0.73125rem #383838, inset 0 0 0 1.575rem #444, inset 0 0 0 1.63125rem #383838, inset 0 0 0 2.3625rem #444, inset 0 0 0.25rem 2.3625rem rgba(0, 0, 0, 0.5); }
+  box-shadow: inset 0 0 0 0.225rem #2b2b2b, inset 0 0 0 0.28125rem #040404, inset 0 0 0 0.675rem #444, inset 0 0 0 0.73125rem #383838, inset 0 0 0 1.575rem #444, inset 0 0 0 1.63125rem #383838, inset 0 0 0 2.3625rem #444, inset 0 0 0.25rem 2.3625rem rgba(0, 0, 0, 0.5);
+  contain: strict; }
 
 .Stargate-engraving {
   position: absolute;
@@ -4869,7 +4871,8 @@ body > * {
 
 .Stargate-chevron {
   -webkit-transform-origin: top;
-          transform-origin: top; }
+          transform-origin: top;
+  will-change: transform; }
 
 .Stargate-chevron:nth-child(0) {
   -webkit-transform: rotate(-40deg) translateY(-22.75rem);
@@ -4939,7 +4942,8 @@ body > * {
   -webkit-transition: -webkit-transform 200ms;
   transition: -webkit-transform 200ms;
   transition: transform 200ms;
-  transition: transform 200ms, -webkit-transform 200ms; }
+  transition: transform 200ms, -webkit-transform 200ms;
+  will-change: transform, opacity, background; }
   .Stargate-chevronHook::before, .Stargate-chevronHookActive::before {
     position: absolute;
     bottom: 0;
