@@ -416,8 +416,7 @@ body > * {
           align-items: flex-end;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center;
-  overflow: hidden; }
+          justify-content: center; }
 
 .Svg {
   width: 1em;
