@@ -87,8 +87,8 @@ $c_chevron_light_active: #d98413;
 
   @extend %center;
 
-  &::before,
-  &::after {
+  .Stargate-engravingBefore,
+  .Stargate-engravingAfter {
     position: absolute;
     display: block;
     width: .0625rem;
@@ -97,12 +97,12 @@ $c_chevron_light_active: #d98413;
     transform-origin: top;
   }
 
-  &::before {
+  .Stargate-engravingBefore {
     height: .9rem;
     transform: translateX(-50%) rotate($outer_engravings_angle * -.5) translateY(-21.8rem);
   }
 
-  &::after {
+  .Stargate-engravingAfter {
     height: .55rem;
     transform: translateX(-50%) translateY(-21.8rem);
   }
@@ -125,7 +125,7 @@ $c_chevron_light_active: #d98413;
 
   transform: translateX(-50%) translateY(-21.55rem);
 
-  &::before {
+  .Stargate-engravingOvalBefore {
     position: absolute;
     top: 0;
     left: 50%;
@@ -134,10 +134,10 @@ $c_chevron_light_active: #d98413;
     border-radius: 50%;
     content: "";
     transform: translateX(-50%);
-    box-shadow: inset 0 0 0 .0625rem $c_engraving;
+    box-shadow: inset 0 0 0 .0625rem $c_engraving; // TODO: fix me
   }
 
-  &::after {
+  .Stargate-engravingOvalAfter {
     position: absolute;
     top: .3rem;
     left: 50%;
@@ -178,7 +178,7 @@ $c_chevron_light_active: #d98413;
 
   @extend %center;
 
-  &::before {
+  .Stargate-triangleBefore {
     display: block;
     border-right: .35rem solid transparent;
     border-bottom: .45rem solid $c_engraving;
@@ -188,8 +188,8 @@ $c_chevron_light_active: #d98413;
     transform: translateY(-17.15rem);
   }
 
-  &:nth-child(7n+1)::before,
-  &:nth-child(9n+1)::before {
+  &:nth-child(7n+1) .Stargate-triangleBefore,
+  &:nth-child(9n+1) .Stargate-triangleBefore {
     border-top: .1875rem solid $c_engraving;
     border-right: .1875rem solid transparent;
     border-bottom: 0;
@@ -223,8 +223,8 @@ $c_chevron_light_active: #d98413;
 
   @extend %center;
 
-  &::before,
-  &::after {
+  .Stargate-symboleBefore,
+  .Stargate-symboleAfter {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -249,11 +249,11 @@ $c_chevron_light_active: #d98413;
   .Stargate-symbole:nth-child(#{$i}) {
     transform: rotate($symboles_angle * ($i - 1));
 
-    &::before {
+    .Stargate-symboleBefore {
       transform: translateX(-50%) rotate($symboles_angle * -.47) translateY($symboles_size_outer * -.5);
     }
 
-    &::after {
+    .Stargate-symboleAfter {
       transform: translateX(-50%) rotate($symboles_angle * .47) translateY($symboles_size_outer * -.5);
     }
 
@@ -292,9 +292,19 @@ $c_chevron_light_active: #d98413;
   width: 15rem;
   height: 3.8rem;
   clip-path: polygon(0% 0%, 43% 0%, 50% 100%, 57% 0%, 100% 0%, 100% 100%, 0% 100%);
-  background: linear-gradient($c_chevron_plate 0%, $c_chevron_plate 17.15%, transparent 17.15%);
+  background-image:
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <rect fill='#{$c_chevron_plate}' x='0' y='0' width='100%' height='100%'/>
+      </svg>"
+    );
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 17.15%;
   border-radius: 50%;
   transform: translateX(-50%);
+  contain: strict;
 }
 
 .Stargate-chevronHook {
@@ -313,39 +323,38 @@ $c_chevron_light_active: #d98413;
       68% 100%,
       32% 100%
     );
-  background:
-    linear-gradient(
-      $c_chevron_hook 0%,
-      $c_chevron_hook .1875rem,
-      $c_chevron_light .1875rem,
-      $c_chevron_light .25rem,
-      $c_chevron_hook .25rem,
-      $c_chevron_hook .4375rem,
-      $c_chevron_light .4375rem,
-      $c_chevron_light .5rem,
-      $c_chevron_hook .5rem,
-      $c_chevron_hook .6875rem,
-      $c_chevron_light .6875rem,
-      $c_chevron_light .75rem,
-      $c_chevron_hook .75rem,
-      $c_chevron_hook .9375rem,
-      $c_chevron_light .9375rem,
-      $c_chevron_light 1rem,
-      $c_chevron_hook 1rem,
-      $c_chevron_hook 1.1875rem,
-      $c_chevron_light 1.1875rem,
-      $c_chevron_light 1.25rem,
-      $c_chevron_hook 1.25rem,
-      $c_chevron_hook 1.4375rem,
-      $c_chevron_light 1.4375rem,
-      $c_chevron_light 1.5rem,
-      $c_chevron_hook 1.5rem
+  background-image:
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <g fill='#{$c_chevron_light}' width='100%' height='100%'>
+          <rect x='0' y='0%' width='100%' height='4%'></rect>
+          <rect x='0' y='28%' width='100%' height='4%'></rect>
+          <rect x='0' y='56%' width='100%' height='4%'></rect>
+          <rect x='0' y='14%' width='100%' height='4%'></rect>
+          <rect x='0' y='42%' width='100%' height='4%'></rect>
+          <rect x='0' y='70%' width='100%' height='4%'></rect>
+        </g>
+      </svg>"
+    ),
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <rect fill='#{$c_chevron_hook}' x='0' y='0' width='100%' height='100%'/>
+      </svg>"
     );
+  background-position:
+    0 20%,
+    0 0;
+  background-repeat: no-repeat;
+  background-size:
+    100% 56%,
+    100% 100%;
   transform: translateX(-50%);
   transition: transform $chevron_lock_transition;
   will-change: transform, opacity, background;
 
-  &::before {
+  .Stargate-chevronHookBefore {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -372,33 +381,25 @@ $c_chevron_light_active: #d98413;
 
   @extend .Stargate-chevronHook;
 
-  background:
-    linear-gradient(
-      $c_chevron_hook 0%,
-      $c_chevron_hook .1875rem,
-      $c_chevron_light_active .1875rem,
-      $c_chevron_light_active .25rem,
-      $c_chevron_hook .25rem,
-      $c_chevron_hook .4375rem,
-      $c_chevron_light_active .4375rem,
-      $c_chevron_light_active .5rem,
-      $c_chevron_hook .5rem,
-      $c_chevron_hook .6875rem,
-      $c_chevron_light_active .6875rem,
-      $c_chevron_light_active .75rem,
-      $c_chevron_hook .75rem,
-      $c_chevron_hook .9375rem,
-      $c_chevron_light_active .9375rem,
-      $c_chevron_light_active 1rem,
-      $c_chevron_hook 1rem,
-      $c_chevron_hook 1.1875rem,
-      $c_chevron_light_active 1.1875rem,
-      $c_chevron_light_active 1.25rem,
-      $c_chevron_hook 1.25rem,
-      $c_chevron_hook 1.4375rem,
-      $c_chevron_light_active 1.4375rem,
-      $c_chevron_light_active 1.5rem,
-      $c_chevron_hook 1.5rem
+  background-image:
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <g fill='#{$c_chevron_light_active}' width='100%' height='100%'>
+          <rect x='0' y='0%' width='100%' height='4%'></rect>
+          <rect x='0' y='28%' width='100%' height='4%'></rect>
+          <rect x='0' y='56%' width='100%' height='4%'></rect>
+          <rect x='0' y='14%' width='100%' height='4%'></rect>
+          <rect x='0' y='42%' width='100%' height='4%'></rect>
+          <rect x='0' y='70%' width='100%' height='4%'></rect>
+        </g>
+      </svg>"
+    ),
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <rect fill='#{$c_chevron_hook}' x='0' y='0' width='100%' height='100%'/>
+      </svg>"
     );
   opacity: 0;
   transition: opacity $chevron_transition;
@@ -429,55 +430,57 @@ $c_chevron_light_active: #d98413;
   transform: translateX(-50%);
   transition: transform $chevron_lock_transition;
 
-  &::before,
-  &::after {
-    position: absolute;
-    top: -.05rem;
-    left: 50%;
-    width: 1.8rem;
-    height: 2.3rem;
-    clip-path:
-      polygon(
-        2% 0%,
-        98% 0%,
-        63% 100%,
-        37% 100%
-      );
-    background:
-      linear-gradient(
-        lighten($c_chevron_light, 5%) 0%,
-        lighten($c_chevron_light, 5%) 15%,
-        $c_chevron_light 15%,
-        $c_chevron_light 45%,
-        darken($c_chevron_light, 5%) 45%,
-        darken($c_chevron_light, 5%) 100%
-      );
-    content: "";
-    transform: translateX(-50%);
-    transition: background 500ms;
-  }
-
-  &::after {
-    background:
-      linear-gradient(
-        lighten($c_chevron_light_active, 5%) 0%,
-        lighten($c_chevron_light_active, 5%) 15%,
-        $c_chevron_light_active 15%,
-        $c_chevron_light_active 45%,
-        darken($c_chevron_light_active, 5%) 45%,
-        darken($c_chevron_light_active, 5%) 100%
-      );
-    opacity: 0;
-    transition: $chevron_transition;
-  }
-
-  .Stargate-chevron.is-active &::after {
-    opacity: 1;
-  }
-
   .Stargate-chevron.is-open & {
     transform: translateX(-50%) translateY(-.5rem);
   }
+}
+
+.Stargate-chevronLightBefore,
+.Stargate-chevronLightAfter {
+  position: absolute;
+  top: -.05rem;
+  left: 50%;
+  width: 1.8rem;
+  height: 2.3rem;
+  clip-path:
+    polygon(
+      2% 0%,
+      98% 0%,
+      63% 100%,
+      37% 100%
+    );
+  background-image:
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <rect fill='#{lighten($c_chevron_light, 5%)}' x='0' y='0%' width='100%' height='15%'></rect>
+        <rect fill='#{$c_chevron_light}' x='0' y='15%' width='100%' height='30%'></rect>
+        <rect fill='#{darken($c_chevron_light, 5%)}' x='0' y='45%' width='100%' height='55%'></rect>
+      </svg>"
+    );
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: translateX(-50%);
+  transition: background 500ms;
+}
+
+.Stargate-chevronLightAfter {
+  background-image:
+    url(
+      "data:image/svg+xml,
+      <svg xmlns='http://www.w3.org/2000/svg'>
+        <rect fill='#{lighten($c_chevron_light_active, 5%)}' x='0' y='0%' width='100%' height='15%'></rect>
+        <rect fill='#{$c_chevron_light_active}' x='0' y='15%' width='100%' height='30%'></rect>
+        <rect fill='#{darken($c_chevron_light_active, 5%)}' x='0' y='45%' width='100%' height='55%'></rect>
+      </svg>"
+    );
+  opacity: 0;
+  transition: $chevron_transition;
+}
+
+.Stargate-chevron.is-active .Stargate-chevronLightAfter {
+  opacity: 1;
 }
 
 .Stargate-innerRing {
