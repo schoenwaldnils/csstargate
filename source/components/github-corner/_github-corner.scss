@@ -32,6 +32,7 @@
 .GithubCorner-octoArm {
   transform-origin: bottom right;
   animation: octocat-wave 560ms ease-in-out;
+  will-change: transform;
 
   .GithubCorner:hover & {
     animation: octocat-wave 560ms ease-in-out infinite;
