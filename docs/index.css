@@ -508,7 +508,8 @@ body > * {
   height: 0;
   -webkit-transform-origin: top;
           transform-origin: top; }
-  .Stargate-engraving::before, .Stargate-engraving::after {
+  .Stargate-engraving .Stargate-engravingBefore,
+  .Stargate-engraving .Stargate-engravingAfter {
     position: absolute;
     display: block;
     width: .0625rem;
@@ -516,11 +517,11 @@ body > * {
     content: "";
     -webkit-transform-origin: top;
             transform-origin: top; }
-  .Stargate-engraving::before {
+  .Stargate-engraving .Stargate-engravingBefore {
     height: .9rem;
     -webkit-transform: translateX(-50%) rotate(-0.6deg) translateY(-21.8rem);
             transform: translateX(-50%) rotate(-0.6deg) translateY(-21.8rem); }
-  .Stargate-engraving::after {
+  .Stargate-engraving .Stargate-engravingAfter {
     height: .55rem;
     -webkit-transform: translateX(-50%) translateY(-21.8rem);
             transform: translateX(-50%) translateY(-21.8rem); }
@@ -1740,7 +1741,7 @@ body > * {
           transform-origin: top;
   -webkit-transform: translateX(-50%) translateY(-21.55rem);
           transform: translateX(-50%) translateY(-21.55rem); }
-  .Stargate-engravingOval::before {
+  .Stargate-engravingOval .Stargate-engravingOvalBefore {
     position: absolute;
     top: 0;
     left: 50%;
@@ -1751,7 +1752,7 @@ body > * {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     box-shadow: inset 0 0 0 0.0625rem #383838; }
-  .Stargate-engravingOval::after {
+  .Stargate-engravingOval .Stargate-engravingOvalAfter {
     position: absolute;
     top: .3rem;
     left: 50%;
@@ -3700,7 +3701,7 @@ body > * {
 .Stargate-triangle {
   width: 0;
   height: 0; }
-  .Stargate-triangle::before {
+  .Stargate-triangle .Stargate-triangleBefore {
     display: block;
     border-right: .35rem solid transparent;
     border-bottom: 0.45rem solid #383838;
@@ -3710,7 +3711,8 @@ body > * {
             transform-origin: top;
     -webkit-transform: translateY(-17.15rem);
             transform: translateY(-17.15rem); }
-  .Stargate-triangle:nth-child(7n+1)::before, .Stargate-triangle:nth-child(9n+1)::before {
+  .Stargate-triangle:nth-child(7n+1) .Stargate-triangleBefore,
+  .Stargate-triangle:nth-child(9n+1) .Stargate-triangleBefore {
     border-top: 0.1875rem solid #383838;
     border-right: .1875rem solid transparent;
     border-bottom: 0;
@@ -4320,7 +4322,8 @@ body > * {
   transition: transform 4000ms ease-in-out, -webkit-transform 4000ms ease-in-out;
   will-change: transform; }
 
-.Stargate-symbole::before, .Stargate-symbole::after {
+.Stargate-symbole .Stargate-symboleBefore,
+.Stargate-symbole .Stargate-symboleAfter {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -4343,10 +4346,10 @@ body > * {
 .Stargate-symbole:nth-child(0) {
   -webkit-transform: rotate(-9.23077deg);
           transform: rotate(-9.23077deg); }
-  .Stargate-symbole:nth-child(0)::before {
+  .Stargate-symbole:nth-child(0) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(0)::after {
+  .Stargate-symbole:nth-child(0) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(0) .Stargate-svg {
@@ -4356,10 +4359,10 @@ body > * {
 .Stargate-symbole:nth-child(1) {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg); }
-  .Stargate-symbole:nth-child(1)::before {
+  .Stargate-symbole:nth-child(1) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(1)::after {
+  .Stargate-symbole:nth-child(1) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(1) .Stargate-svg {
@@ -4369,10 +4372,10 @@ body > * {
 .Stargate-symbole:nth-child(2) {
   -webkit-transform: rotate(9.23077deg);
           transform: rotate(9.23077deg); }
-  .Stargate-symbole:nth-child(2)::before {
+  .Stargate-symbole:nth-child(2) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(2)::after {
+  .Stargate-symbole:nth-child(2) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(2) .Stargate-svg {
@@ -4382,10 +4385,10 @@ body > * {
 .Stargate-symbole:nth-child(3) {
   -webkit-transform: rotate(18.46154deg);
           transform: rotate(18.46154deg); }
-  .Stargate-symbole:nth-child(3)::before {
+  .Stargate-symbole:nth-child(3) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(3)::after {
+  .Stargate-symbole:nth-child(3) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(3) .Stargate-svg {
@@ -4395,10 +4398,10 @@ body > * {
 .Stargate-symbole:nth-child(4) {
   -webkit-transform: rotate(27.69231deg);
           transform: rotate(27.69231deg); }
-  .Stargate-symbole:nth-child(4)::before {
+  .Stargate-symbole:nth-child(4) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(4)::after {
+  .Stargate-symbole:nth-child(4) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(4) .Stargate-svg {
@@ -4408,10 +4411,10 @@ body > * {
 .Stargate-symbole:nth-child(5) {
   -webkit-transform: rotate(36.92308deg);
           transform: rotate(36.92308deg); }
-  .Stargate-symbole:nth-child(5)::before {
+  .Stargate-symbole:nth-child(5) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(5)::after {
+  .Stargate-symbole:nth-child(5) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(5) .Stargate-svg {
@@ -4421,10 +4424,10 @@ body > * {
 .Stargate-symbole:nth-child(6) {
   -webkit-transform: rotate(46.15385deg);
           transform: rotate(46.15385deg); }
-  .Stargate-symbole:nth-child(6)::before {
+  .Stargate-symbole:nth-child(6) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(6)::after {
+  .Stargate-symbole:nth-child(6) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(6) .Stargate-svg {
@@ -4434,10 +4437,10 @@ body > * {
 .Stargate-symbole:nth-child(7) {
   -webkit-transform: rotate(55.38462deg);
           transform: rotate(55.38462deg); }
-  .Stargate-symbole:nth-child(7)::before {
+  .Stargate-symbole:nth-child(7) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(7)::after {
+  .Stargate-symbole:nth-child(7) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(7) .Stargate-svg {
@@ -4447,10 +4450,10 @@ body > * {
 .Stargate-symbole:nth-child(8) {
   -webkit-transform: rotate(64.61538deg);
           transform: rotate(64.61538deg); }
-  .Stargate-symbole:nth-child(8)::before {
+  .Stargate-symbole:nth-child(8) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(8)::after {
+  .Stargate-symbole:nth-child(8) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(8) .Stargate-svg {
@@ -4460,10 +4463,10 @@ body > * {
 .Stargate-symbole:nth-child(9) {
   -webkit-transform: rotate(73.84615deg);
           transform: rotate(73.84615deg); }
-  .Stargate-symbole:nth-child(9)::before {
+  .Stargate-symbole:nth-child(9) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(9)::after {
+  .Stargate-symbole:nth-child(9) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(9) .Stargate-svg {
@@ -4473,10 +4476,10 @@ body > * {
 .Stargate-symbole:nth-child(10) {
   -webkit-transform: rotate(83.07692deg);
           transform: rotate(83.07692deg); }
-  .Stargate-symbole:nth-child(10)::before {
+  .Stargate-symbole:nth-child(10) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(10)::after {
+  .Stargate-symbole:nth-child(10) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(10) .Stargate-svg {
@@ -4486,10 +4489,10 @@ body > * {
 .Stargate-symbole:nth-child(11) {
   -webkit-transform: rotate(92.30769deg);
           transform: rotate(92.30769deg); }
-  .Stargate-symbole:nth-child(11)::before {
+  .Stargate-symbole:nth-child(11) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(11)::after {
+  .Stargate-symbole:nth-child(11) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(11) .Stargate-svg {
@@ -4499,10 +4502,10 @@ body > * {
 .Stargate-symbole:nth-child(12) {
   -webkit-transform: rotate(101.53846deg);
           transform: rotate(101.53846deg); }
-  .Stargate-symbole:nth-child(12)::before {
+  .Stargate-symbole:nth-child(12) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(12)::after {
+  .Stargate-symbole:nth-child(12) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(12) .Stargate-svg {
@@ -4512,10 +4515,10 @@ body > * {
 .Stargate-symbole:nth-child(13) {
   -webkit-transform: rotate(110.76923deg);
           transform: rotate(110.76923deg); }
-  .Stargate-symbole:nth-child(13)::before {
+  .Stargate-symbole:nth-child(13) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(13)::after {
+  .Stargate-symbole:nth-child(13) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(13) .Stargate-svg {
@@ -4525,10 +4528,10 @@ body > * {
 .Stargate-symbole:nth-child(14) {
   -webkit-transform: rotate(120deg);
           transform: rotate(120deg); }
-  .Stargate-symbole:nth-child(14)::before {
+  .Stargate-symbole:nth-child(14) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(14)::after {
+  .Stargate-symbole:nth-child(14) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(14) .Stargate-svg {
@@ -4538,10 +4541,10 @@ body > * {
 .Stargate-symbole:nth-child(15) {
   -webkit-transform: rotate(129.23077deg);
           transform: rotate(129.23077deg); }
-  .Stargate-symbole:nth-child(15)::before {
+  .Stargate-symbole:nth-child(15) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(15)::after {
+  .Stargate-symbole:nth-child(15) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(15) .Stargate-svg {
@@ -4551,10 +4554,10 @@ body > * {
 .Stargate-symbole:nth-child(16) {
   -webkit-transform: rotate(138.46154deg);
           transform: rotate(138.46154deg); }
-  .Stargate-symbole:nth-child(16)::before {
+  .Stargate-symbole:nth-child(16) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(16)::after {
+  .Stargate-symbole:nth-child(16) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(16) .Stargate-svg {
@@ -4564,10 +4567,10 @@ body > * {
 .Stargate-symbole:nth-child(17) {
   -webkit-transform: rotate(147.69231deg);
           transform: rotate(147.69231deg); }
-  .Stargate-symbole:nth-child(17)::before {
+  .Stargate-symbole:nth-child(17) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(17)::after {
+  .Stargate-symbole:nth-child(17) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(17) .Stargate-svg {
@@ -4577,10 +4580,10 @@ body > * {
 .Stargate-symbole:nth-child(18) {
   -webkit-transform: rotate(156.92308deg);
           transform: rotate(156.92308deg); }
-  .Stargate-symbole:nth-child(18)::before {
+  .Stargate-symbole:nth-child(18) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(18)::after {
+  .Stargate-symbole:nth-child(18) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(18) .Stargate-svg {
@@ -4590,10 +4593,10 @@ body > * {
 .Stargate-symbole:nth-child(19) {
   -webkit-transform: rotate(166.15385deg);
           transform: rotate(166.15385deg); }
-  .Stargate-symbole:nth-child(19)::before {
+  .Stargate-symbole:nth-child(19) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(19)::after {
+  .Stargate-symbole:nth-child(19) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(19) .Stargate-svg {
@@ -4603,10 +4606,10 @@ body > * {
 .Stargate-symbole:nth-child(20) {
   -webkit-transform: rotate(175.38462deg);
           transform: rotate(175.38462deg); }
-  .Stargate-symbole:nth-child(20)::before {
+  .Stargate-symbole:nth-child(20) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(20)::after {
+  .Stargate-symbole:nth-child(20) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(20) .Stargate-svg {
@@ -4616,10 +4619,10 @@ body > * {
 .Stargate-symbole:nth-child(21) {
   -webkit-transform: rotate(184.61538deg);
           transform: rotate(184.61538deg); }
-  .Stargate-symbole:nth-child(21)::before {
+  .Stargate-symbole:nth-child(21) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(21)::after {
+  .Stargate-symbole:nth-child(21) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(21) .Stargate-svg {
@@ -4629,10 +4632,10 @@ body > * {
 .Stargate-symbole:nth-child(22) {
   -webkit-transform: rotate(193.84615deg);
           transform: rotate(193.84615deg); }
-  .Stargate-symbole:nth-child(22)::before {
+  .Stargate-symbole:nth-child(22) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(22)::after {
+  .Stargate-symbole:nth-child(22) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(22) .Stargate-svg {
@@ -4642,10 +4645,10 @@ body > * {
 .Stargate-symbole:nth-child(23) {
   -webkit-transform: rotate(203.07692deg);
           transform: rotate(203.07692deg); }
-  .Stargate-symbole:nth-child(23)::before {
+  .Stargate-symbole:nth-child(23) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(23)::after {
+  .Stargate-symbole:nth-child(23) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(23) .Stargate-svg {
@@ -4655,10 +4658,10 @@ body > * {
 .Stargate-symbole:nth-child(24) {
   -webkit-transform: rotate(212.30769deg);
           transform: rotate(212.30769deg); }
-  .Stargate-symbole:nth-child(24)::before {
+  .Stargate-symbole:nth-child(24) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(24)::after {
+  .Stargate-symbole:nth-child(24) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(24) .Stargate-svg {
@@ -4668,10 +4671,10 @@ body > * {
 .Stargate-symbole:nth-child(25) {
   -webkit-transform: rotate(221.53846deg);
           transform: rotate(221.53846deg); }
-  .Stargate-symbole:nth-child(25)::before {
+  .Stargate-symbole:nth-child(25) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(25)::after {
+  .Stargate-symbole:nth-child(25) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(25) .Stargate-svg {
@@ -4681,10 +4684,10 @@ body > * {
 .Stargate-symbole:nth-child(26) {
   -webkit-transform: rotate(230.76923deg);
           transform: rotate(230.76923deg); }
-  .Stargate-symbole:nth-child(26)::before {
+  .Stargate-symbole:nth-child(26) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(26)::after {
+  .Stargate-symbole:nth-child(26) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(26) .Stargate-svg {
@@ -4694,10 +4697,10 @@ body > * {
 .Stargate-symbole:nth-child(27) {
   -webkit-transform: rotate(240deg);
           transform: rotate(240deg); }
-  .Stargate-symbole:nth-child(27)::before {
+  .Stargate-symbole:nth-child(27) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(27)::after {
+  .Stargate-symbole:nth-child(27) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(27) .Stargate-svg {
@@ -4707,10 +4710,10 @@ body > * {
 .Stargate-symbole:nth-child(28) {
   -webkit-transform: rotate(249.23077deg);
           transform: rotate(249.23077deg); }
-  .Stargate-symbole:nth-child(28)::before {
+  .Stargate-symbole:nth-child(28) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(28)::after {
+  .Stargate-symbole:nth-child(28) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(28) .Stargate-svg {
@@ -4720,10 +4723,10 @@ body > * {
 .Stargate-symbole:nth-child(29) {
   -webkit-transform: rotate(258.46154deg);
           transform: rotate(258.46154deg); }
-  .Stargate-symbole:nth-child(29)::before {
+  .Stargate-symbole:nth-child(29) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(29)::after {
+  .Stargate-symbole:nth-child(29) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(29) .Stargate-svg {
@@ -4733,10 +4736,10 @@ body > * {
 .Stargate-symbole:nth-child(30) {
   -webkit-transform: rotate(267.69231deg);
           transform: rotate(267.69231deg); }
-  .Stargate-symbole:nth-child(30)::before {
+  .Stargate-symbole:nth-child(30) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(30)::after {
+  .Stargate-symbole:nth-child(30) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(30) .Stargate-svg {
@@ -4746,10 +4749,10 @@ body > * {
 .Stargate-symbole:nth-child(31) {
   -webkit-transform: rotate(276.92308deg);
           transform: rotate(276.92308deg); }
-  .Stargate-symbole:nth-child(31)::before {
+  .Stargate-symbole:nth-child(31) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(31)::after {
+  .Stargate-symbole:nth-child(31) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(31) .Stargate-svg {
@@ -4759,10 +4762,10 @@ body > * {
 .Stargate-symbole:nth-child(32) {
   -webkit-transform: rotate(286.15385deg);
           transform: rotate(286.15385deg); }
-  .Stargate-symbole:nth-child(32)::before {
+  .Stargate-symbole:nth-child(32) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(32)::after {
+  .Stargate-symbole:nth-child(32) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(32) .Stargate-svg {
@@ -4772,10 +4775,10 @@ body > * {
 .Stargate-symbole:nth-child(33) {
   -webkit-transform: rotate(295.38462deg);
           transform: rotate(295.38462deg); }
-  .Stargate-symbole:nth-child(33)::before {
+  .Stargate-symbole:nth-child(33) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(33)::after {
+  .Stargate-symbole:nth-child(33) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(33) .Stargate-svg {
@@ -4785,10 +4788,10 @@ body > * {
 .Stargate-symbole:nth-child(34) {
   -webkit-transform: rotate(304.61538deg);
           transform: rotate(304.61538deg); }
-  .Stargate-symbole:nth-child(34)::before {
+  .Stargate-symbole:nth-child(34) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(34)::after {
+  .Stargate-symbole:nth-child(34) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(34) .Stargate-svg {
@@ -4798,10 +4801,10 @@ body > * {
 .Stargate-symbole:nth-child(35) {
   -webkit-transform: rotate(313.84615deg);
           transform: rotate(313.84615deg); }
-  .Stargate-symbole:nth-child(35)::before {
+  .Stargate-symbole:nth-child(35) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(35)::after {
+  .Stargate-symbole:nth-child(35) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(35) .Stargate-svg {
@@ -4811,10 +4814,10 @@ body > * {
 .Stargate-symbole:nth-child(36) {
   -webkit-transform: rotate(323.07692deg);
           transform: rotate(323.07692deg); }
-  .Stargate-symbole:nth-child(36)::before {
+  .Stargate-symbole:nth-child(36) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(36)::after {
+  .Stargate-symbole:nth-child(36) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(36) .Stargate-svg {
@@ -4824,10 +4827,10 @@ body > * {
 .Stargate-symbole:nth-child(37) {
   -webkit-transform: rotate(332.30769deg);
           transform: rotate(332.30769deg); }
-  .Stargate-symbole:nth-child(37)::before {
+  .Stargate-symbole:nth-child(37) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(37)::after {
+  .Stargate-symbole:nth-child(37) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(37) .Stargate-svg {
@@ -4837,10 +4840,10 @@ body > * {
 .Stargate-symbole:nth-child(38) {
   -webkit-transform: rotate(341.53846deg);
           transform: rotate(341.53846deg); }
-  .Stargate-symbole:nth-child(38)::before {
+  .Stargate-symbole:nth-child(38) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(38)::after {
+  .Stargate-symbole:nth-child(38) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(38) .Stargate-svg {
@@ -4850,10 +4853,10 @@ body > * {
 .Stargate-symbole:nth-child(39) {
   -webkit-transform: rotate(350.76923deg);
           transform: rotate(350.76923deg); }
-  .Stargate-symbole:nth-child(39)::before {
+  .Stargate-symbole:nth-child(39) .Stargate-symboleBefore {
     -webkit-transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(-4.33846deg) translateY(-20.158rem); }
-  .Stargate-symbole:nth-child(39)::after {
+  .Stargate-symbole:nth-child(39) .Stargate-symboleAfter {
     -webkit-transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem);
             transform: translateX(-50%) rotate(4.33846deg) translateY(-20.158rem); }
   .Stargate-symbole:nth-child(39) .Stargate-svg {
@@ -4919,11 +4922,14 @@ body > * {
   height: 3.8rem;
   -webkit-clip-path: polygon(0% 0%, 43% 0%, 50% 100%, 57% 0%, 100% 0%, 100% 100%, 0% 100%);
           clip-path: polygon(0% 0%, 43% 0%, 50% 100%, 57% 0%, 100% 0%, 100% 100%, 0% 100%);
-  background: -webkit-linear-gradient(#383838 0%, #383838 17.15%, transparent 17.15%);
-  background: linear-gradient(#383838 0%, #383838 17.15%, transparent 17.15%);
+  background-image: url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <rect fill='#383838' x='0' y='0' width='100%' height='100%'/>\a       </svg>");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 17.15%;
   border-radius: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%); }
+          transform: translateX(-50%);
+  contain: strict; }
 
 .Stargate-chevronHook, .Stargate-chevronHookActive {
   position: absolute;
@@ -4932,8 +4938,10 @@ body > * {
   height: 3.2rem;
   -webkit-clip-path: polygon(0% 0%, 25% 0%, 39% 68%, 61% 68%, 75% 0%, 100% 0%, 68% 100%, 32% 100%);
           clip-path: polygon(0% 0%, 25% 0%, 39% 68%, 61% 68%, 75% 0%, 100% 0%, 68% 100%, 32% 100%);
-  background: -webkit-linear-gradient(#343434 0%, #343434 0.1875rem, #4e423e 0.1875rem, #4e423e 0.25rem, #343434 0.25rem, #343434 0.4375rem, #4e423e 0.4375rem, #4e423e 0.5rem, #343434 0.5rem, #343434 0.6875rem, #4e423e 0.6875rem, #4e423e 0.75rem, #343434 0.75rem, #343434 0.9375rem, #4e423e 0.9375rem, #4e423e 1rem, #343434 1rem, #343434 1.1875rem, #4e423e 1.1875rem, #4e423e 1.25rem, #343434 1.25rem, #343434 1.4375rem, #4e423e 1.4375rem, #4e423e 1.5rem, #343434 1.5rem);
-  background: linear-gradient(#343434 0%, #343434 0.1875rem, #4e423e 0.1875rem, #4e423e 0.25rem, #343434 0.25rem, #343434 0.4375rem, #4e423e 0.4375rem, #4e423e 0.5rem, #343434 0.5rem, #343434 0.6875rem, #4e423e 0.6875rem, #4e423e 0.75rem, #343434 0.75rem, #343434 0.9375rem, #4e423e 0.9375rem, #4e423e 1rem, #343434 1rem, #343434 1.1875rem, #4e423e 1.1875rem, #4e423e 1.25rem, #343434 1.25rem, #343434 1.4375rem, #4e423e 1.4375rem, #4e423e 1.5rem, #343434 1.5rem);
+  background-image: url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <g fill='#4e423e' width='100%' height='100%'>\a           <rect x='0' y='0%' width='100%' height='4%'></rect>\a           <rect x='0' y='28%' width='100%' height='4%'></rect>\a           <rect x='0' y='56%' width='100%' height='4%'></rect>\a           <rect x='0' y='14%' width='100%' height='4%'></rect>\a           <rect x='0' y='42%' width='100%' height='4%'></rect>\a           <rect x='0' y='70%' width='100%' height='4%'></rect>\a         </g>\a       </svg>"), url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <rect fill='#343434' x='0' y='0' width='100%' height='100%'/>\a       </svg>");
+  background-position: 0 20%, 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 56%, 100% 100%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   -webkit-transition: -webkit-transform 200ms;
@@ -4941,7 +4949,7 @@ body > * {
   transition: transform 200ms;
   transition: transform 200ms, -webkit-transform 200ms;
   will-change: transform, opacity, background; }
-  .Stargate-chevronHook::before, .Stargate-chevronHookActive::before {
+  .Stargate-chevronHook .Stargate-chevronHookBefore, .Stargate-chevronHookActive .Stargate-chevronHookBefore {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -4958,8 +4966,7 @@ body > * {
             transform: translateX(-50%) translateY(0.5rem); }
 
 .Stargate-chevronHookActive {
-  background: -webkit-linear-gradient(#343434 0%, #343434 0.1875rem, #d98413 0.1875rem, #d98413 0.25rem, #343434 0.25rem, #343434 0.4375rem, #d98413 0.4375rem, #d98413 0.5rem, #343434 0.5rem, #343434 0.6875rem, #d98413 0.6875rem, #d98413 0.75rem, #343434 0.75rem, #343434 0.9375rem, #d98413 0.9375rem, #d98413 1rem, #343434 1rem, #343434 1.1875rem, #d98413 1.1875rem, #d98413 1.25rem, #343434 1.25rem, #343434 1.4375rem, #d98413 1.4375rem, #d98413 1.5rem, #343434 1.5rem);
-  background: linear-gradient(#343434 0%, #343434 0.1875rem, #d98413 0.1875rem, #d98413 0.25rem, #343434 0.25rem, #343434 0.4375rem, #d98413 0.4375rem, #d98413 0.5rem, #343434 0.5rem, #343434 0.6875rem, #d98413 0.6875rem, #d98413 0.75rem, #343434 0.75rem, #343434 0.9375rem, #d98413 0.9375rem, #d98413 1rem, #343434 1rem, #343434 1.1875rem, #d98413 1.1875rem, #d98413 1.25rem, #343434 1.25rem, #343434 1.4375rem, #d98413 1.4375rem, #d98413 1.5rem, #343434 1.5rem);
+  background-image: url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <g fill='#d98413' width='100%' height='100%'>\a           <rect x='0' y='0%' width='100%' height='4%'></rect>\a           <rect x='0' y='28%' width='100%' height='4%'></rect>\a           <rect x='0' y='56%' width='100%' height='4%'></rect>\a           <rect x='0' y='14%' width='100%' height='4%'></rect>\a           <rect x='0' y='42%' width='100%' height='4%'></rect>\a           <rect x='0' y='70%' width='100%' height='4%'></rect>\a         </g>\a       </svg>"), url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <rect fill='#343434' x='0' y='0' width='100%' height='100%'/>\a       </svg>");
   opacity: 0;
   -webkit-transition: opacity 150ms;
   transition: opacity 150ms; }
@@ -4984,32 +4991,36 @@ body > * {
   transition: -webkit-transform 200ms;
   transition: transform 200ms;
   transition: transform 200ms, -webkit-transform 200ms; }
-  .Stargate-chevronLight::before, .Stargate-chevronLight::after {
-    position: absolute;
-    top: -.05rem;
-    left: 50%;
-    width: 1.8rem;
-    height: 2.3rem;
-    -webkit-clip-path: polygon(2% 0%, 98% 0%, 63% 100%, 37% 100%);
-            clip-path: polygon(2% 0%, 98% 0%, 63% 100%, 37% 100%);
-    background: -webkit-linear-gradient(#5c4e49 0%, #5c4e49 15%, #4e423e 15%, #4e423e 45%, #403633 45%, #403633 100%);
-    background: linear-gradient(#5c4e49 0%, #5c4e49 15%, #4e423e 15%, #4e423e 45%, #403633 45%, #403633 100%);
-    content: "";
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    -webkit-transition: background 500ms;
-    transition: background 500ms; }
-  .Stargate-chevronLight::after {
-    background: -webkit-linear-gradient(#eb911b 0%, #eb911b 15%, #d98413 15%, #d98413 45%, #c27611 45%, #c27611 100%);
-    background: linear-gradient(#eb911b 0%, #eb911b 15%, #d98413 15%, #d98413 45%, #c27611 45%, #c27611 100%);
-    opacity: 0;
-    -webkit-transition: 150ms;
-    transition: 150ms; }
-  .Stargate-chevron.is-active .Stargate-chevronLight::after {
-    opacity: 1; }
   .Stargate-chevron.is-open .Stargate-chevronLight {
     -webkit-transform: translateX(-50%) translateY(-0.5rem);
             transform: translateX(-50%) translateY(-0.5rem); }
+
+.Stargate-chevronLightBefore,
+.Stargate-chevronLightAfter {
+  position: absolute;
+  top: -.05rem;
+  left: 50%;
+  width: 1.8rem;
+  height: 2.3rem;
+  -webkit-clip-path: polygon(2% 0%, 98% 0%, 63% 100%, 37% 100%);
+          clip-path: polygon(2% 0%, 98% 0%, 63% 100%, 37% 100%);
+  background-image: url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <rect fill='#5c4e49' x='0' y='0%' width='100%' height='15%'></rect>\a         <rect fill='#4e423e' x='0' y='15%' width='100%' height='30%'></rect>\a         <rect fill='#403633' x='0' y='45%' width='100%' height='55%'></rect>\a       </svg>");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: background 500ms;
+  transition: background 500ms; }
+
+.Stargate-chevronLightAfter {
+  background-image: url("data:image/svg+xml,\a       <svg xmlns='http://www.w3.org/2000/svg'>\a         <rect fill='#eb911b' x='0' y='0%' width='100%' height='15%'></rect>\a         <rect fill='#d98413' x='0' y='15%' width='100%' height='30%'></rect>\a         <rect fill='#c27611' x='0' y='45%' width='100%' height='55%'></rect>\a       </svg>");
+  opacity: 0;
+  -webkit-transition: 150ms;
+  transition: 150ms; }
+
+.Stargate-chevron.is-active .Stargate-chevronLightAfter {
+  opacity: 1; }
 
 .Stargate-innerRing {
   width: 33.3rem;
