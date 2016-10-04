@@ -124,7 +124,7 @@ $c_chevron_light_active: #d98413;
   background-image:
     url(
       "data:image/svg+xml,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' preserveAspectRatio='none'>
         <path fill='#{$c_engraving}' d='M42,64 C42,64 40,8 24,8 C8,8 6,64 6,64 L0,64 C0,64 4,3.2657248e-15 24,0 C44,0 48,64 48,64 L42,64 Z' id='Path-2'></path>
         <path fill='#{$c_engraving}' d='M31,64 C31,64 31,29.3333333 24,29.3333333 C17,29.3333333 17,64 17,64 L11,64 C11,64 12,21.3333333 24,21.3333333 C36,21.3333333 37,64 37,64 L31,64 Z' id='Path-2-Copy'></path>
       </svg>"
@@ -133,7 +133,7 @@ $c_chevron_light_active: #d98413;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   transform-origin: top;
-  transform: translateX(-50%) translateY(-21.7rem);
+  transform: translateX(-50%) translateY(-21.65rem);
 }
 
 .Stargate-engravingLine {
