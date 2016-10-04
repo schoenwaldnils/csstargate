@@ -1,3 +1,7 @@
+install:
+  - npm install
+before_deploy:
+  - npm run build
 deploy:
   provider: script
   script: scripts/deploy.sh
