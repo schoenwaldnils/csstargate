@@ -105,7 +105,6 @@ gulp.task('svgmin-color', () => {
         { removeTitle: true },
       ],
     }))
-    .on('error', error => { console.log(error); })
     .pipe(gulp.dest(`${dirs.dest}svgs/`));
 });
 
@@ -137,9 +136,7 @@ gulp.task('build:svg-sprite', () => {
         },
       ],
     }))
-    .on('error', error => { console.log(error); })
     .pipe(svgSprite(config))
-    .on('error', error => { console.log(error); })
     .pipe(gulp.dest(`${dirs.dest}svg-sprite/`));
 });
 
