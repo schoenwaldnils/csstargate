@@ -6,7 +6,6 @@ import eslint from 'gulp-eslint';
 import exit from 'gulp-exit';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
-import postcss from 'gulp-postcss';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
 import stylelint from 'gulp-stylelint';
@@ -14,7 +13,6 @@ import watchify from 'watchify';
 import jade from 'gulp-jade';
 import autoprefixer from 'gulp-autoprefixer';
 import sass from 'gulp-sass';
-import moduleImporter from 'sass-module-importer';
 
 // SVG
 import svgmin from 'gulp-svgmin';
@@ -23,37 +21,37 @@ import svgSprite from 'gulp-svg-sprite';
 
 const dirs = {
   src: 'source/',
-  dest: 'docs/'
+  dest: 'docs/',
 };
 
 const files = {
   css: 'index.scss',
   js: 'index.js',
-  tpl: 'index.jade'
-}
+  tpl: 'index.jade',
+};
 
 const globs = {
   css: [
-    dirs.src + 'styles/**/*.scss',
-    dirs.src + 'components/**/*.scss',
-    dirs.src + files.css
+    `${dirs.src}styles/**/*.scss`,
+    `${dirs.src}components/**/*.scss`,
+    dirs.src + files.css,
   ],
   js: [
-    dirs.src + 'scripts/**/*.js',
-    dirs.src + 'components/**/*.js',
-    dirs.src + files.js
+    `${dirs.src}scripts/**/*.js`,
+    `${dirs.src}components/**/*.js`,
+    dirs.src + files.js,
   ],
   tpl: [
-    dirs.src + 'templates/**/*.jade',
-    dirs.src + 'components/**/*.jade',
-    dirs.src + files.tpl
-  ]
+    `${dirs.src}templates/**/*.jade`,
+    `${dirs.src}components/**/*.jade`,
+    dirs.src + files.tpl,
+  ],
 };
 
 gulp.task('build:css', () => {
   gulp.src(dirs.src + files.css)
     .pipe(plumber())
-    .pipe(sass({ importer: moduleImporter() }))
+    .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest(dirs.dest))
     .pipe(connect.reload());
@@ -100,14 +98,15 @@ gulp.task('build:tpl', () => {
 });
 
 gulp.task('svgmin-color', () => {
-  return gulp.src('**/*.svg', {cwd: 'assets/images/svgs/color/'})
+  gulp.src('**/*.svg', { cwd: 'assets/images/svgs/color/' })
     .pipe(plumber())
     .pipe(svgmin({
       plugins: [
-        {removeTitle: true}
-      ]
-    })).on('error', error => { console.log(error); })
-    .pipe(gulp.dest(dirs.dest + 'svgs/'));
+        { removeTitle: true },
+      ],
+    }))
+    .on('error', error => { console.log(error); })
+    .pipe(gulp.dest(`${dirs.dest}svgs/`));
 });
 
 gulp.task('build:svg-sprite', () => {
@@ -116,34 +115,38 @@ gulp.task('build:svg-sprite', () => {
       symbol: {
         render: {
           css: {
-            template: 'svg-sprite-css.twig'
-          }
+            template: 'svg-sprite-css.twig',
+          },
         },
-        prefix: ".Svg--%s",
-        dimensions: "%s",
-        example: true
-      }
-    }
+        prefix: '.Svg--%s',
+        dimensions: '%s',
+        example: true,
+      },
+    },
   };
 
-  return gulp.src('**/*.svg', {cwd: 'source/images/svgs'})
+  return gulp.src('**/*.svg', { cwd: 'source/images/svgs' })
     .pipe(plumber())
     .pipe(svgmin({
       plugins: [
-        {removeTitle: true},
-        {removeAttrs: {
-          attrs: 'fill'
-        }}
-      ]
-    })).on('error', error => { console.log(error); })
-    .pipe(svgSprite(config)).on('error', error => { console.log(error); })
-    .pipe(gulp.dest(dirs.dest + 'svg-sprite/'));
+        { removeTitle: true },
+        {
+          removeAttrs: {
+            attrs: 'fill',
+          },
+        },
+      ],
+    }))
+    .on('error', error => { console.log(error); })
+    .pipe(svgSprite(config))
+    .on('error', error => { console.log(error); })
+    .pipe(gulp.dest(`${dirs.dest}svg-sprite/`));
 });
 
 gulp.task('build:assets', () => {
-  gulp.src(dirs.src + 'assets/**/*.*')
+  gulp.src(`${dirs.src}assets/**/*.*`)
     .pipe(plumber())
-    .pipe(gulp.dest(dirs.dest + 'assets'));
+    .pipe(gulp.dest(`${dirs.dest}assets`));
 });
 
 gulp.task('lint:css', () => gulp.src(dirs.source + files.css)
@@ -177,7 +180,7 @@ gulp.task('watch:tpl', () => {
 });
 
 gulp.task('watch:assets', () => {
-  gulp.watch([dirs.src + 'assets/**/*.*',], ['build:assets']);
+  gulp.watch([`${dirs.src}assets/**/*.*`], ['build:assets']);
 });
 
 gulp.task('server', () => {
