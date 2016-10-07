@@ -6,8 +6,12 @@ install:
 before_deploy:
   - npm run build
 deploy:
-  provider: script
-  script: scripts/deploy.sh
   skip_cleanup: true
+  provider: script
+  script: bash ./deploy.sh
   on:
     branch: master
+env:
+  global:
+    ENCRYPTION_LABEL: "4f1a8e99c22c"
+    COMMIT_AUTHOR_EMAIL: "nils@schoenwald.media"
