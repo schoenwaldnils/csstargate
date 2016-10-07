@@ -9,6 +9,11 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
   exit 0
 fi
 
+last_cm=`git log -1 --pretty=%B`
+if [[ $last_cm == *"Deploy docs for github-pages"* ]]: then
+  echo "Skipping deploy."
+  exit 0
+fi
 # Save some useful information
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
@@ -23,7 +28,7 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 git config push.default simple
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if [ -z "$(git diff --exit-code)" ]; then
+if [ -z `git diff --exit-code` ]; then
   echo "No changes to the output on this push; exiting."
   exit 0
 fi
@@ -46,8 +51,8 @@ git add docs/.
 echo "-- git add docs/."
 git status
 echo "-- git status"
-git commit -m "Deploy to GitHub Pages: ${SHA}"
-echo "-- git commit -m \"Deploy to GitHub Pages: ${SHA}\""
+git commit -m "Deploy docs for github-pages: ${SHA}"
+echo "-- git commit -m \"Deploy docs for github-pages: ${SHA}\""
 git status
 echo "-- git status"
 
