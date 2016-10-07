@@ -17,9 +17,10 @@ SHA=`git rev-parse --verify HEAD`
 # Now let's go have some fun with the cloned repo
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
+git config push.default simple
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if [ -z `git diff --exit-code` ]; then
+if [ -z "$(git diff --exit-code)" ]; then
   echo "No changes to the output on this push; exiting."
   exit 0
 fi
@@ -43,4 +44,4 @@ eval `ssh-agent -s`
 ssh-add deploy_key
 
 # Now that we're all set up, we can push.
-git push origin/$SOURCE_BRANCH
+git push $SSH_REPO $SOURCE_BRANCH
