@@ -10,7 +10,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
 fi
 
 last_cm=`git log -1 --pretty=%B`
-if [[ $last_cm == *"Deploy docs for github-pages"* ]]: then
+if [[ $last_cm == *"Deploy docs for github-pages"* ]]; then
   echo "Skipping deploy."
   exit 0
 fi
