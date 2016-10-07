@@ -40,7 +40,8 @@ fi
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git commit -ma "Deploy to GitHub Pages: ${SHA}"
+git add docs/*
+git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
@@ -53,4 +54,4 @@ eval `ssh-agent -s`
 ssh-add deploy_key
 
 # Now that we're all set up, we can push.
-git push $SSH_REPO $SOURCE_BRANCH
+git push origin/$SOURCE_BRANCH
