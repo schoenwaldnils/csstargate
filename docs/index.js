@@ -1262,7 +1262,7 @@ var Dhd = function (_HTMLElement) {
 
   function Dhd() {
     (0, _classCallCheck3['default'])(this, Dhd);
-    return (0, _possibleConstructorReturn3['default'])(this, (0, _getPrototypeOf2['default'])(Dhd).apply(this, arguments));
+    return (0, _possibleConstructorReturn3['default'])(this, (Dhd.__proto__ || (0, _getPrototypeOf2['default'])(Dhd)).apply(this, arguments));
   }
 
   (0, _createClass3['default'])(Dhd, [{
@@ -1436,7 +1436,7 @@ var Stargate = function (_HTMLElement) {
 
   function Stargate() {
     (0, _classCallCheck3['default'])(this, Stargate);
-    return (0, _possibleConstructorReturn3['default'])(this, (0, _getPrototypeOf2['default'])(Stargate).apply(this, arguments));
+    return (0, _possibleConstructorReturn3['default'])(this, (Stargate.__proto__ || (0, _getPrototypeOf2['default'])(Stargate)).apply(this, arguments));
   }
 
   (0, _createClass3['default'])(Stargate, [{
