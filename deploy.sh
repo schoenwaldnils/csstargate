@@ -14,6 +14,9 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
+git clone $REPO
+git checkout $SOURCE_BRANCH
+
 # Now let's go have some fun with the cloned repo
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
@@ -44,9 +47,11 @@ echo "-- git add docs/."
 git status
 echo "-- git status"
 git commit -m "Deploy to GitHub Pages: ${SHA}"
-echo "-- git commit \"Deploy to GitHub Pages: ${SHA}\""
+echo "-- git commit -m \"Deploy to GitHub Pages: ${SHA}\""
 git status
 echo "-- git status"
 
 # Now that we're all set up, we can push.
 git push $SSH_REPO $SOURCE_BRANCH
+
+echo $SSH_REPO
