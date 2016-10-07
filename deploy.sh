@@ -3,15 +3,9 @@ set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="master"
 
-function doCompile {
-  npm run build
-  echo "Build."
-}
-
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
-  echo "Skipping deploy; just doing a build."
-  doCompile
+  echo "Skipping deploy."
   exit 0
 fi
 
@@ -19,15 +13,6 @@ fi
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
-
-# Clone the existing gh-pages for this repo into out/
-git clone $REPO docs
-
-# Clean out existing contents
-rm -rf docs/**/* || exit 0
-
-# Run our compile script
-doCompile
 
 # Now let's go have some fun with the cloned repo
 git config user.name "Travis CI"
