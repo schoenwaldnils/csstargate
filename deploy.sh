@@ -25,15 +25,6 @@ if [ -z "$(git diff --exit-code)" ]; then
   exit 0
 fi
 
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
-git status
-echo "git status"
-git add docs/.
-echo "git add docs/."
-git commit -m "Deploy to GitHub Pages: ${SHA}"
-echo "git commit \"Deploy to GitHub Pages: ${SHA}\""
-
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
 ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
@@ -43,6 +34,19 @@ openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -out 
 chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
+
+# Commit the "changes", i.e. the new version.
+# The delta will show diffs between new and old versions.
+git status
+echo "-- git status"
+git add docs/.
+echo "-- git add docs/."
+git status
+echo "-- git status"
+git commit -m "Deploy to GitHub Pages: ${SHA}"
+echo "-- git commit \"Deploy to GitHub Pages: ${SHA}\""
+git status
+echo "-- git status"
 
 # Now that we're all set up, we can push.
 git push $SSH_REPO $SOURCE_BRANCH
