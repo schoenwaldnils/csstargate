@@ -20,6 +20,9 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
+git config user.name "Travis CI"
+git config user.email "$COMMIT_AUTHOR_EMAIL"
+
 # Clean out existing contents
 rm -rf docs || exit 0
 
@@ -33,10 +36,12 @@ cd ..
 # Run our compile script
 doCompile
 
+git status
+
 # Now let's go have some fun with the cloned repo
 cd docs
-git config user.name "Travis CI"
-git config user.email "$COMMIT_AUTHOR_EMAIL"
+
+git status
 
 # If there are no changes to the compiled docs (e.g. this is a README update) then just bail.
 if [ -z "$(git diff --exit-code)" ]; then
