@@ -192,7 +192,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('deploy', () => {
-  gulp.src(dirs.dest + '**/*')
+  gulp.src(`${dirs.dest}**/*`)
     .pipe(ghPages());
 });
 
