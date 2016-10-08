@@ -23,6 +23,13 @@ SHA=`git rev-parse --verify HEAD`
 # Clean out existing contents
 rm -rf docs/**/* || exit 0
 
+# Clone the existing gh-pages for this repo into out/
+# Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
+git clone $REPO docs
+cd docs
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+cd ..
+
 # Run our compile script
 doCompile
 
@@ -41,8 +48,6 @@ fi
 # The delta will show diffs between new and old versions.
 git add .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
-
-cd ..
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
