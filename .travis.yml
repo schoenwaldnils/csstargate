@@ -1,9 +1,11 @@
 language: node_js
 node_js:
   - "4"
-before_install:
-  - openssl aes-256-cbc -K $encrypted_4f1a8e99c22c_key -iv $encrypted_4f1a8e99c22c_iv -in deploy_key.enc -out deploy_key -d
 script: bash ./deploy.sh
 branches:
   only:
     - master
+env:
+  global:
+    ENCRYPTION_LABEL: "4f1a8e99c22c"
+    COMMIT_AUTHOR_EMAIL: "bot@schoenwald.media"
