@@ -2,6 +2,7 @@
 set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="master"
+TARGET_BRANCH="gh-pages"
 
 function doCompile {
   npm run build
@@ -44,3 +45,4 @@ eval `ssh-agent -s`
 ssh-add deploy_key
 
 npm run deploy
+git push -u origin $TARGET_BRANCH
