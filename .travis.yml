@@ -6,6 +6,7 @@ before_install:
 before_deploy:
   - npm run build
 deploy:
+  provider: script
   script:
     - npm run deploy
 branches:
