@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
+npm run build
+npm run deploy
+
+REPO=`git config remote.origin.url`
+SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
 ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
@@ -11,6 +17,4 @@ chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
 
-npm run build
-npm run deploy
-git push -u origin gh-pages
+git push -u $SSH_REPO gh-pages
