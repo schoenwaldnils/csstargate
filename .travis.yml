@@ -3,6 +3,7 @@ node_js:
   - "4"
 before_install:
   - openssl aes-256-cbc -K $encrypted_4f1a8e99c22c_key -iv $encrypted_4f1a8e99c22c_iv -in deploy_key.enc -out deploy_key -d
+before_deploy:
   - npm run build
 deploy:
   script:
