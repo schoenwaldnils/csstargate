@@ -2,7 +2,6 @@
 set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="master"
-TARGET_BRANCH="gh-pages"
 
 function doCompile {
   npm run build
@@ -23,23 +22,8 @@ SHA=`git rev-parse --verify HEAD`
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-# Clean out existing contents
-rm -rf docs || exit 0
-
-# Clone the existing gh-pages for this repo into out/
-# Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
-git clone $REPO docs
-cd docs
-git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-cd ..
-
 # Run our compile script
 doCompile
-
-git status
-
-# Now let's go have some fun with the cloned repo
-cd docs
 
 git status
 
@@ -48,13 +32,6 @@ if [ -z "$(git diff --exit-code)" ]; then
   echo "No changes to the output on this push; exiting."
   exit 0
 fi
-
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
-git add .
-git commit -m "Deploy to GitHub Pages: ${SHA}"
-
-cd ..
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
@@ -66,5 +43,4 @@ chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
 
-# Now that we're all set up, we can push.
-git push $SSH_REPO $TARGET_BRANCH
+npm run deploy
