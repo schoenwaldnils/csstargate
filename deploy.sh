@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-npm run build
-npm run deploy
-
 REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 
@@ -16,5 +13,8 @@ openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -out 
 chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
+
+npm run build
+npm run deploy
 
 git push origin gh-pages
