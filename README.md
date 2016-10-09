@@ -2,6 +2,8 @@
 
 ### A Stargate build mainly with CSS, and a bit js for dialing
 
+[![Build Status](https://travis-ci.org/schoenwaldnils/csstargate.svg?branch=master)](https://travis-ci.org/schoenwaldnils/csstargate)
+
 ### How to use it
 
 1. Dial any `6` Chevron length address on the DHD. The seventh is the earth itself <img src="http://vignette2.wikia.nocookie.net/stargate/images/7/72/0Ega.svg/revision/latest/scale-to-width-down/48?cb=20110924121417" width="16px" height="16px" style="vertical-align:text-bottom;">
