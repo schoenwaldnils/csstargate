@@ -1,5 +1,5 @@
 node_modules
-build
+docs
 .publish
 deploy_key
 deploy_key.pub

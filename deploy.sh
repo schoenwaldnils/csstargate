@@ -6,6 +6,7 @@ TARGET_BRANCH="gh-pages"
 
 function doCompile {
   npm run build
+  cp -f deploy_key.enc docs/deploy_key.enc
 }
 
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
