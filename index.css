@@ -9,9 +9,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden; }
+  box-sizing: border-box; }
 
 html {
   font-size: 16px; }
