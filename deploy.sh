@@ -17,4 +17,5 @@ chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
 
-git push $SSH_REPO gh-pages
+git remote add origin $SSH_REPO
+git push origin gh-pages
