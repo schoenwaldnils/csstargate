@@ -11,4 +11,4 @@ A Stargate build mainly with CSS, and a bit js for dialing
 3. Watch the Stargate dialing your choosen address.
 4. Press the small red button to reset the gate.
 
-####[Klick here to get to the live Stargate](http://schoenwaldnils.github.com/csstargate)
+#### [Klick here to get to the live Stargate](http://schoenwaldnils.github.com/csstargate)
