@@ -1,0 +1,10 @@
+build/
+__temp__/
+out/
+.next/
+node_modules/
+/infrastructure/
+bundles/
+scripts/
+
+generated

@@ -1,5 +1,6 @@
+.asset-cache
+npm-debug.log
+
 node_modules
-docs
-.publish
-deploy_key
-deploy_key.pub
+.next
+.env.local

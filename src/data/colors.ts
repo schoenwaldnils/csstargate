@@ -1,0 +1,40 @@
+export const colors = {
+  black: '#0c0c0c',
+  almostblack: '#181818',
+  blacklight: '#2b2b2b',
+  charcoal: '#363636',
+  grayDark: '#444444',
+  gray: '#808080',
+  grayLight: '#c0c0c0',
+  grayLightest: '#e6e6e6',
+  white: '#ffffff',
+
+  info: '#ffff00',
+  warning: '#c61010',
+  success: '#3eba43',
+
+  blueLight: '#00bbff',
+  blue: '#0050ff',
+  blueDark: '#000982',
+}
+
+export const stargate = {
+  gateMetal: '#444',
+  gateMetalDark: '#383838',
+  gateMetalDarker: '#333',
+  engraving: '#383838',
+  screw: '#333',
+  symbole: '#666',
+  symbolesBackground: '#4a4a4a',
+  symbolesBorder: '#383838',
+  chevronPlate: '#383838',
+  chevronHook: '#343434',
+  chevronHookLighter: '#3a3a3a',
+  chevronLightBorder: '#343434',
+  chevronLightLighter: '#685f5d',
+  chevronLight: '#4e423e',
+  chevronLightDarker: '#352c29',
+  chevronLightActiveLighter: '#e5952d',
+  chevronLightActive: '#d98413',
+  chevronLightActiveDarker: '#bf720d',
+}
