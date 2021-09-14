@@ -7,7 +7,7 @@ export default {
   component: ChevronComponent,
   argTypes: {
     status: {
-      options: ['idle', 'active', 'locked'],
+      options: ['idle', 'open', 'locked'],
       control: { type: 'radio' },
     },
   },
