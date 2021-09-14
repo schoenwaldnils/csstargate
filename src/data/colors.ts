@@ -9,13 +9,9 @@ export const colors = {
   grayLightest: '#e6e6e6',
   white: '#ffffff',
 
-  info: '#ffff00',
-  warning: '#c61010',
-  success: '#3eba43',
-
-  blueLight: '#00bbff',
-  blue: '#0050ff',
-  blueDark: '#000982',
+  orangeLighter: '#d98413',
+  orange: '#d98413',
+  orangeDarker: '#d98413',
 }
 
 export const stargate = {
@@ -25,7 +21,7 @@ export const stargate = {
   engraving: '#383838',
   screw: '#333',
   symbole: '#666',
-  symboleActive: '#d98413',
+  symboleActive: colors.orange,
   symbolesBackground: '#4a4a4a',
   symbolesBorder: '#383838',
   chevronPlate: '#383838',
@@ -35,7 +31,7 @@ export const stargate = {
   chevronLightLighter: '#685f5d',
   chevronLight: '#4e423e',
   chevronLightDarker: '#352c29',
-  chevronLightActiveLighter: '#e5952d',
-  chevronLightActive: '#d98413',
-  chevronLightActiveDarker: '#bf720d',
+  chevronLightActiveLighter: colors.orangeLighter,
+  chevronLightActive: colors.orange,
+  chevronLightActiveDarker: colors.orangeDarker,
 }
