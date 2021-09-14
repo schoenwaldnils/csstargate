@@ -103,7 +103,7 @@ const ChevronHookBefore = styled.div`
   width: 1.525rem;
   height: 1.025rem;
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-  background-color: ${(p) => stargate.chevronHookLighter};
+  background-color: ${stargate.chevronHookLighter};
   transform: translateX(-50%);
 `
 
@@ -152,9 +152,9 @@ const ChevronLight = styled.div<{ isOpen: boolean; isActive: boolean }>`
 `
 
 export const Chevron: FC<{
-  status?: 'idle' | 'active' | 'locked'
+  status?: 'idle' | 'open' | 'locked'
 }> = ({ status = 'idle' }) => {
-  const isOpen = status === 'locked'
+  const isOpen = status === 'open'
   const isActive = status !== 'idle'
 
   return (

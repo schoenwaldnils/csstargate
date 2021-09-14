@@ -10,6 +10,4 @@ export default {
   },
 }
 
-export const Symboles: FC = () => (
-  <SymbolesComponent />
-)
+export const Symboles: FC = (props) => <SymbolesComponent {...props} />

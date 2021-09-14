@@ -51,44 +51,6 @@ const Symbole = styled.div<{ symboleKey: number }>`
   }
 `
 
-const SymboleBorder = styled.div``
-
-// .Stargate-svg {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   color: $c_symbole;
-//   transform: translateX(-50%);
-// }
-
-// @for $i from 0 through $symboles_n {
-//   .Stargate-symbole:nth-child(#{$i}) {
-
-//     .Stargate-symboleBefore {
-//       transform: translateX(-50%) rotate($symboles_angle * -.47) translateY($symboles_size_outer * -.5);
-//     }
-
-//     .Stargate-symboleAfter {
-//       transform: translateX(-50%) rotate($symboles_angle * .47) translateY($symboles_size_outer * -.5);
-//     }
-
-//     .Stargate-svg {
-//       transform: translate(-50%, -19.6rem);
-//     }
-//   }
-// }
-
-// .Stargate-symboles
-// - for (var i = 1; i <= symboles_n; ++i)
-//   .Stargate-symbole
-//     .Stargate-symboleBefore
-//     //- Glyphs are taken from http://stargate.wikia.com/wiki/Glyph
-//     svg.Stargate-svg.Svg(class="Svg--"+i)
-//       use("xmlns:xlink"="http://www.w3.org/1999/xlink",
-//         "xlink:href"="svg-sprite/symbol/svg/sprite.symbol.svg#"+i,
-//         :role="img")
-//     .Stargate-symboleAfter
-
 export const Symboles: FC = (props) => {
   return (
     <SymboleContainer {...props}>

@@ -4,11 +4,7 @@ const toPath = (_path) => path.join(process.cwd(), _path)
 
 module.exports = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
-  addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-controls',
-  ],
+  addons: ['@storybook/addon-controls'],
   typescript: {
     check: false,
     checkOptions: {},

@@ -11,6 +11,9 @@ export default {
       control: { type: 'radio' },
     },
   },
+  args: {
+    status: 'idle',
+  },
   parameters: {
     percy: { skip: true },
   },

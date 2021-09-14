@@ -10,6 +10,4 @@ export default {
   },
 }
 
-export const Stargate: FC = () => (
-  <StargateComponent />
-)
+export const Stargate: FC = () => <StargateComponent />

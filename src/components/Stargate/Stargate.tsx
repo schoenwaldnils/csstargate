@@ -1,9 +1,9 @@
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { FC } from 'react'
 
 import { center } from '../../utils/mixins'
 import { Chevron } from '../Chevron'
+import { EventHorizon } from '../EventHorizon'
 import { InnerRing } from '../InnerRing'
 import { OuterRing } from '../OuterRing'
 import { Symboles } from '../Symboles'
@@ -17,6 +17,14 @@ const StargateContainer = styled.div`
   position: relative;
   width: var(--size);
   height: var(--size);
+`
+
+const EventHorizonPositioned = styled(EventHorizon)`
+  ${center}
+`
+
+const OuterRingPositioned = styled(OuterRing)`
+  ${center}
 `
 
 const SymbolesPositioned = styled(Symboles)`
@@ -36,11 +44,15 @@ const ChevronWrapper = styled.div<{ index: number }>`
   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-20.75rem);
 `
 
-export const Stargate: FC = () => {
+export const Stargate: FC<{ address?: number[] }> = ({ address = [] }) => {
+  // eslint-disable-next-line no-console
+  console.log(address)
+
   return (
     <StargateContainer>
+      <EventHorizonPositioned />
       <SymbolesPositioned />
-      <OuterRing />
+      <OuterRingPositioned />
       <InnerRingCentered />
       {/* eslint-disable-next-line prefer-spread */}
       {Array.apply(null, Array(shevron_n)).map((_, key: number) => (

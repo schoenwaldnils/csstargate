@@ -21,10 +21,11 @@ export const colors = {
 export const stargate = {
   gateMetal: '#444',
   gateMetalDark: '#383838',
-  gateMetalDarker: '#333',
+  gateMetalDarker: '#282828',
   engraving: '#383838',
   screw: '#333',
   symbole: '#666',
+  symboleActive: '#d98413',
   symbolesBackground: '#4a4a4a',
   symbolesBorder: '#383838',
   chevronPlate: '#383838',
