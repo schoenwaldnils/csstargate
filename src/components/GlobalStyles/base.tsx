@@ -18,13 +18,18 @@ export const base = css`
     /* stylelint-disable-next-line max-line-length */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
       sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-size: 16px;
+    font-size: 2vmin;
     font-weight: 400;
     line-height: 1.5;
     font-display: swap;
+
+    @media (min-width: 720px) {
+      font-size: 16px;
+    }
   }
 
   body {
+    font-size: 16px;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -32,11 +37,6 @@ export const base = css`
     text-rendering: optimizeLegibility;
     background-color: ${colors.almostblack};
   }
-
-  /* textarea:focus,
-  input:focus {
-    outline: 1px solid var(--color-green);
-  } */
 
   h1,
   h2,
