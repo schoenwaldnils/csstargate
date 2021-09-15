@@ -14,16 +14,21 @@ const View = styled.div`
   overflow: hidden;
 `
 
+const Text = styled.div`
+  text-align: center;
+`
+
 const IndexPage: NextPage = () => {
   return (
     <View>
       <Stargate />
-      <span>
-        Work in progress. Currently refactoring{' '}
+      <Text>
+        Work in progress. <br />
+        Currently refactoring{' '}
         <Link href="http://csstargate.schoen.world/" target="_blank">
           csstargate.schoen.world
         </Link>
-      </span>
+      </Text>
     </View>
   )
 }
