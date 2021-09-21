@@ -15,7 +15,8 @@ const InnerRingContainer = styled.div`
   height: var(--innerSize);
   border-radius: 50%;
   box-shadow: 0 0 0 1.0125rem ${stargate.gateMetal},
-    0 0 0.25rem 1.0125rem rgba(0, 0, 0, 0.5);
+    0 0 0.25rem 1.0125rem rgba(0, 0, 0, 0.5),
+    inset 0 0 0.5rem rgba(0, 0, 0, 0.5);
 `
 
 const EngravingLine = styled.div<{ engravingKey: number }>`

@@ -10,7 +10,8 @@ const View = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  min-height: 100vh;
+  min-height: 90vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 `
 
@@ -25,7 +26,7 @@ const IndexPage: NextPage = () => {
       <Text>
         Work in progress. <br />
         Currently refactoring{' '}
-        <Link href="http://csstargate.schoen.world/" target="_blank">
+        <Link href="https://csstargate.schoen.world/" target="_blank">
           csstargate.schoen.world
         </Link>
       </Text>

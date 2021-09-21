@@ -5,6 +5,7 @@ import { center } from '../../utils/mixins'
 import { Chevron } from '../Chevron'
 import { EventHorizon } from '../EventHorizon'
 import { InnerRing } from '../InnerRing'
+import { Iris } from '../Iris'
 import { OuterRing } from '../OuterRing'
 import { Symboles } from '../Symboles'
 
@@ -20,6 +21,10 @@ const StargateContainer = styled.div`
 `
 
 const EventHorizonPositioned = styled(EventHorizon)`
+  ${center}
+`
+
+const IrisPositioned = styled(Iris)`
   ${center}
 `
 
@@ -44,13 +49,17 @@ const ChevronWrapper = styled.div<{ index: number }>`
   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-20.75rem);
 `
 
-export const Stargate: FC<{ address?: number[] }> = ({ address = [] }) => {
+export const Stargate: FC<{ address?: number[]; irisActive?: boolean }> = ({
+  address = [],
+  irisActive = true,
+}) => {
   // eslint-disable-next-line no-console
   console.log(address)
 
   return (
     <StargateContainer>
       <EventHorizonPositioned />
+      <IrisPositioned isActive={irisActive} />
       <SymbolesPositioned />
       <OuterRingPositioned />
       <InnerRingCentered />
